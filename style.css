@@ -1,0 +1,213 @@
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --link-bg-color: #2b2b2b;
+    --link-hover-bg-color: #3b3b3b;
+    --link-border-color: #444444;
+    --main-accent-color: #ffcc00; /* Używany jako przykład, jeśli strona ma jakiś akcent */
+    --profile-width: 600px;
+    --link-gap: 16px;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.page-container {
+    max-width: var(--profile-width);
+    width: 100%;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+/* Header */
+.profile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header-icons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+.profile-avatar {
+    margin-top: 1rem;
+}
+
+.avatar-image {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 4px solid var(--text-color);
+}
+
+.profile-name {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icon-link {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.social-icon-link:hover {
+    color: var(--main-accent-color);
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Main content */
+.profile-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--link-gap);
+    margin-top: 2rem;
+}
+
+.link-container {
+    position: relative;
+    width: 100%;
+}
+
+.link-button {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--link-bg-color);
+    border: 1px solid var(--link-border-color);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.link-button:hover {
+    background-color: var(--link-hover-bg-color);
+    border-color: var(--text-color);
+}
+
+.link-icon {
+    width: 48px;
+    height: 48px;
+    margin-right: 1rem;
+}
+
+.link-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.link-text p {
+    margin: 0;
+    line-height: 1.3;
+}
+
+.link-title {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.link-subtitle {
+    font-weight: 400;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.link-image-container {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.link-image-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.link-title-overlay {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.linktree-badge {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.linktree-badge a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.linktree-badge a:hover {
+    opacity: 1;
+}
+
+.badge-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Footer */
+.profile-footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
