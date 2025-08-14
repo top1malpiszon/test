@@ -32,7 +32,46 @@ header p {
   margin-bottom: 30px;
 }
 
-/* Siatka kafelków */
 .tiles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150p
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #ff0000, #800000);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+}
+
+.tile:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(255,0,0,0.6);
+  background: linear-gradient(135deg, #ff4d4d, #cc0000);
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>LukiSteve</h1>
+      <p>Siatka linków dla fanów</p>
+    </header>
+    <div class="tiles">
+      <a href="https://www.twitch.tv" class="tile">Twitch</a>
+      <a href="https://www.instagram.com" class="tile">Instagram</a>
+      <a href="https://discord.gg" class="tile">Discord</a>
+      <a href="https://csgo-skins.com" class="tile">CSGOSKINS</a>
+      <a href="https://pirateswap.com" class="tile">PIRATESWAP</a>
+    </div>
+  </div>
+</body>
+</html>
