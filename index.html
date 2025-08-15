@@ -10,9 +10,10 @@
     <style>
         /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
         body {
-            background: linear-gradient(-45deg, #000000, #8b0000, #000000);
-            background-size: 400% 400%;
-            animation: gradient-shift 15s ease infinite;
+            background-color: #000000;
+            background-image: radial-gradient(circle, rgba(139, 0, 0, 0.4) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: starryNight 30s linear infinite;
             color: #fff;
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -22,16 +23,13 @@
             align-items: center;
             min-height: 100vh;
         }
-
-        @keyframes gradient-shift {
-            0% {
-                background-position: 0% 50%;
+        
+        @keyframes starryNight {
+            from {
+                background-position: 0 0;
             }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
+            to {
+                background-position: 100% 100%;
             }
         }
 
@@ -68,7 +66,6 @@
             margin-top: 20px;
         }
         
-        /* Styl dla wszystkich linków w "kafelkach" */
         .link-button {
             display: flex;
             align-items: center;
@@ -119,7 +116,6 @@
             margin: 0;
         }
         
-        /* Styl dla linków w sekcji links-container */
         .links-container {
             display: flex;
             flex-direction: column;
@@ -127,7 +123,6 @@
             margin-top: 30px;
         }
 
-        /* Dodatkowe style dla banerów */
         .link-image-container {
             position: relative;
             border-radius: 6px;
@@ -155,7 +150,6 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
 
-        /* Stopka */
         .footer-logo {
             margin-top: 40px;
             opacity: 0.7;
@@ -205,46 +199,3 @@
                         <p class="link-subtitle">Wpadnij na serwer!</p>
                     </div>
                 </a>
-                <a href="https://kick.com/lukisteve" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/kick.png" alt="Kick Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Kick</p>
-                        <p class="link-subtitle">Streamy na żywo!</p>
-                    </div>
-                </a>
-            </div>
-        </header>
-
-        <main class="links-container">
-            <a href="https://csgo-skins.com/?ref=LUKI" target="_blank" class="link-button">
-                <div class="link-icon">
-                    <img src="images/csgoskins.png" alt="CSGOSKINS icon">
-                </div>
-                <div class="link-text">
-                    <p class="link-title">CSGOSKINS - 2.10</p>
-                    <p class="link-subtitle">I 10% WIĘCEJ DO DOŁADOWANIA</p>
-                </div>
-            </a>
-
-            <a href="https://pirateswap.com/pl?ref=luki" target="_blank" class="link-button">
-                <div class="link-icon">
-                    <img src="images/pirateswap.png" alt="PIRATESWAP icon">
-                </div>
-                <div class="link-text">
-                    <p class="link-title">PIRATESWAP - BONUS 35% DO DEPOZYTU Z KODEM LUKI</p>
-                    <p class="link-subtitle"></p>
-                </div>
-            </a>
-
-            <div class="link-image-container">
-                <a href="https://discord.gg/piraci" target="_blank" class="link-button">
-                    <img src="images/discord-banner.jpg" alt="Discord Piratów" class="link-image-banner">
-                    <p class="link-title-overlay">DISCORD PIRATÓW!</p>
-                </a>
-            </div>
-        </main>
-    </div>
-</body>
-</html>
