@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LukiSteve</title>
+    <title>LukiSteve </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
         body {
-            background-color: #1a1a1a;
-            background-image:
-                linear-gradient(rgba(0, 0, 0, 0.4) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 0, 0, 0.4) 1px, transparent 1px);
-            background-size: 20px 20px;
-            animation: mroczne-tlo 40s linear infinite;
+            background: linear-gradient(-45deg, #0f0a1c, #001222, #00233b, #0a0b16);
+            background-size: 400% 400%;
+            animation: ocean-shift 15s ease infinite;
             color: #fff;
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -26,14 +23,18 @@
             min-height: 100vh;
         }
         
-        @keyframes mroczne-tlo {
-            from {
-                background-position: 0 0;
+        @keyframes ocean-shift {
+            0% {
+                background-position: 0% 50%;
             }
-            to {
-                background-position: 100% 100%;
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
             }
         }
+        
 
         .page-container {
             width: 100%;
@@ -97,154 +98,4 @@
         }
 
         .link-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .link-text {
-            text-align: left;
-        }
-
-        .link-title {
-            font-weight: 700;
-            font-size: 16px;
-            margin: 0;
-        }
-
-        .link-subtitle {
-            font-weight: 400;
-            font-size: 12px;
-            opacity: 0.8;
-            margin: 0;
-        }
-        
-        /* Styl dla linków w sekcji links-container */
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-top: 30px;
-        }
-
-        /* Dodatkowe style dla banerów */
-        .link-image-container {
-            position: relative;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .link-image-container .link-button {
-            padding: 0;
-            display: block;
-        }
-
-        .link-image-banner {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .link-title-overlay {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: white;
-            font-size: 20px;
-            font-weight: 700;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-        }
-
-        /* Stopka */
-        .footer-logo {
-            margin-top: 40px;
-            opacity: 0.7;
-            font-size: 14px;
-        }
-
-        .footer-logo a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="page-container">
-        <header class="profile-header">
-            <div class="profile-avatar">
-                <img src="images/avatar.png" alt="LukiSteve Avatar" class="avatar-image">
-            </div>
-            <h1 class="profile-name">LukiSteve</h1>
-            <div class="social-icons">
-                <a href="https://www.twitch.tv/lukisteve" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/twitch3.png" alt="Twitch Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Twitch</p>
-                        <p class="link-subtitle">Streamy na żywo!</p>
-                    </div>
-                </a>
-                <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/instagram2.png" alt="Instagram Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Instagram</p>
-                        <p class="link-subtitle">Zobacz zdjęcia!</p>
-                    </div>
-                </a>
-                <a href="https://discord.gg/piraci" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/discord.png" alt="Discord Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Discord</p>
-                        <p class="link-subtitle">Wpadnij na serwer!</p>
-                    </div>
-                </a>
-                <a href="https://kick.com/lukisteve" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/kick.png" alt="Kick Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Kick</p>
-                        <p class="link-subtitle">Streamy na żywo!</p>
-                    </div>
-                </a>
-            </div>
-        </header>
-
-        <main class="links-container">
-            <a href="https://csgo-skins.com/?ref=LUKI" target="_blank" class="link-button">
-                <div class="link-icon">
-                    <img src="images/csgoskins.png" alt="CSGOSKINS icon">
-                </div>
-                <div class="link-text">
-                    <p class="link-title">CSGOSKINS - 2.10</p>
-                    <p class="link-subtitle">I 10% WIĘCEJ DO DOŁADOWANIA</p>
-                </div>
-            </a>
-
-            <a href="https://pirateswap.com/pl?ref=luki" target="_blank" class="link-button">
-                <div class="link-icon">
-                    <img src="images/pirateswap.png" alt="PIRATESWAP icon">
-                </div>
-                <div class="link-text">
-                    <p class="link-title">PIRATESWAP - BONUS 35% DO DEPOZYTU Z KODEM LUKI</p>
-                    <p class="link-subtitle"></p>
-                </div>
-            </a>
-
-            <div class="link-image-container">
-                <a href="https://discord.gg/piraci" target="_blank" class="link-button">
-                    <img src="images/discord-banner.jpg" alt="Discord Piratów" class="link-image-banner">
-                    <p class="link-title-overlay">DISCORD PIRATÓW!</p>
-                </a>
-            </div>
-        </main>
-    </div>
-</body>
-</html>
+            width: 100
