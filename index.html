@@ -10,16 +10,29 @@
     <style>
         /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
         body {
-            background: linear-gradient(to bottom, #000000 0%, #8b0000 100%);
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+    background: linear-gradient(90deg, #000000, #8b0000);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 
         .page-container {
             width: 100%;
