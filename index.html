@@ -3,20 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LukiSteve </title>
+    <title>LukiSteve</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
         body {
-            background-color: #000000;
-            background-image:
-                radial-gradient(circle at 100% 100%, transparent 10%, #160a0b 15%, #220000 20%, #3b0000 30%, transparent 45%),
-                radial-gradient(circle at 0% 0%, transparent 10%, #160a0b 15%, #220000 20%, #3b0000 30%, transparent 45%);
-            background-size: 200% 200%;
-            background-position: 50% 50%;
-            animation: ocean-waves 12s ease-in-out infinite alternate;
+            background: linear-gradient(-45deg, #000000, #330000, #8b0000, #000000);
+            background-size: 400% 400%;
+            animation: FireWaves 15s ease infinite;
             color: #fff;
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -27,12 +23,15 @@
             min-height: 100vh;
         }
 
-        @keyframes ocean-waves {
-            from {
-                background-position: 0% 0%;
+        @keyframes FireWaves {
+            0% {
+                background-position: 0% 50%;
             }
-            to {
-                background-position: 100% 100%;
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
             }
         }
 
@@ -52,7 +51,7 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            border: 4px solid #8b0000; /* Zmieniony kolor ramki na pasujący do motywu */
+            border: 4px solid #8b0000;
             object-fit: cover;
         }
 
@@ -85,7 +84,7 @@
 
         .link-button:hover {
             background-color: rgba(255, 255, 255, 0.2);
-            border-color: #8b0000; /* Zmieniony kolor ramki na pasujący do motywu */
+            border-color: #8b0000;
         }
         
         .link-icon {
