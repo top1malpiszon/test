@@ -88,38 +88,24 @@
             margin-top: 20px;
         }
 
-       /* Nowa animacja - rozproszony blask */
+       /* Zaktualizowany styl dla delikatnego blasku na kafelkach */
 .link-button {
-    position: relative;
-    overflow: hidden;
-    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
-}
-
-.link-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background-color: #ff0000;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.5s ease-out, height 0.5s ease-out;
-    opacity: 0;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none; /* Upewnij się, że początkowo nie ma cienia */
 }
 
 .link-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    border-color: #8b0000;
-}
-
-.link-button:hover::before {
-    width: 200%;
-    height: 200%;
-    opacity: 0.3;
+    box-shadow: 0 0 10px #ff0000; /* Delikatny, czerwony blask po najechaniu */
 }
 
         .link-icon {
