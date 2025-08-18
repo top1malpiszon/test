@@ -88,7 +88,7 @@
             margin-top: 20px;
         }
 
-       /* Zaktualizowany styl dla delikatnego blasku na kafelkach */
+       /* Zaktualizowany styl dla stałej, delikatnej czerwonej ramki */
 .link-button {
     display: flex;
     align-items: center;
@@ -99,13 +99,15 @@
     border-radius: 12px;
     text-decoration: none;
     color: #fff;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: none; /* Upewnij się, że początkowo nie ma cienia */
+    transition: background-color 0.3s ease;
+    
+    /* Stały, delikatny blask */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); 
 }
 
+/* Usunięcie animacji po najechaniu */
 .link-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 10px #ff0000; /* Delikatny, czerwony blask po najechaniu */
 }
 
         .link-icon {
