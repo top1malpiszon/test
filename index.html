@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LukiSteve</title>
-    <link rel="shortcut icon" type="lukistR.png" href="images/favicon.ico">
-    
+    <link rel="icon" type="image/png" href="lukistR.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
+        /* NOWY KOD CSS ODPOWIEDZIALNY ZA TŁO */
         body {
-            background: linear-gradient(-45deg, #000000, #330000, #8b0000, #000000);
-            background-size: 400% 400%;
-            animation: FireWaves 15s ease infinite;
+            background-color: #000000;
+            background-image:
+                radial-gradient(circle at 100% 100%, transparent 10%, #160a0b 15%, #220000 20%, #3b0000 30%, transparent 45%),
+                radial-gradient(circle at 0% 0%, transparent 10%, #160a0b 15%, #220000 20%, #3b0000 30%, transparent 45%);
+            background-size: 200% 200%;
+            background-position: 50% 50%;
+            animation: ocean-waves 12s ease-in-out infinite alternate;
             color: #fff;
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -26,18 +30,15 @@
             min-height: 100vh;
         }
 
-        @keyframes FireWaves {
-            0% {
-                background-position: 0% 50%;
+        @keyframes ocean-waves {
+            from {
+                background-position: 0% 0%;
             }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
+            to {
+                background-position: 100% 100%;
             }
         }
-
+        
         .page-container {
             width: 100%;
             max-width: 600px;
@@ -50,7 +51,7 @@
             margin-top: 20px;
         }
 
-        /* ZMIENIONY KOD DLA PULSUJĄCEJ RAMKI */
+        /* POPRAWIONY KOD DLA PULSUJĄCEJ RAMKI */
         .avatar-image {
             width: 120px;
             height: 120px;
@@ -213,15 +214,6 @@
                         <p class="link-subtitle">Zobacz zdjęcia!</p>
                     </div>
                 </a>
-                <a href="https://discord.gg/piraci" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/discord.png" alt="Discord Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Discord</p>
-                        <p class="link-subtitle">Wpadnij na serwer!</p>
-                    </div>
-                </a>
                 <a href="https://kick.com/lukisteve" target="_blank" class="link-button">
                     <div class="link-icon">
                         <img src="images/kick.png" alt="Kick Logo">
@@ -240,8 +232,8 @@
                     <img src="images/csgoskins.png" alt="CSGOSKINS icon">
                 </div>
                 <div class="link-text">
-                    <p class="link-title">CSGOSKINS - 2.10</p>
-                    <p class="link-subtitle">I 10% WIĘCEJ DO DOŁADOWANIA</p>
+                    <p class="link-title">CSGOSKINS - 2.10 I 10% WIĘCEJ DO DOŁADOWANIA</p>
+                    <p class="link-subtitle"></p>
                 </div>
             </a>
 
