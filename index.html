@@ -100,10 +100,21 @@
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
-        .link-button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-color: #8b0000; /* Zmieniony kolor ramki na pasujący do motywu */
-        }
+        /* Zmieniony kod dla pulsującego blasku na wszystkich kafelkach */
+.link-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #8b0000;
+    animation: pulsate-red 1.5s infinite alternate;
+}
+
+@keyframes pulsate-red {
+    from {
+        box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+    }
+    to {
+        box-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000;
+    }
+}
         
         .link-icon {
             width: 48px;
