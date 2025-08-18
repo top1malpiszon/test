@@ -102,26 +102,47 @@
     animation: pulsate-red 1.5s infinite alternate;
 }
 
-.link-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: #8b0000;
+/* Zastąp styl .link-button w całości tym, aby działał poprawnie */
+.link-button {
+    position: relative; /* Wymagane dla animacji */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    text-decoration: none;
+    color: #fff;
+    overflow: hidden; /* Ukrywa fragmenty animacji poza ramką */
+    z-index: 1;
 }
 
-@keyframes pulsate-red {
-    from {
-        box-shadow: 0 0 5px #ff0000;
-    }
-    to {
-        box-shadow: 0 0 20px #ff0000;
-    }
+.link-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(#ff0000, transparent);
+    z-index: -1;
+    animation: rotate 4s linear infinite;
 }
 
-@keyframes pulsate-red {
+.link-button:hover::before {
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+}
+
+@keyframes rotate {
     from {
-        box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+        transform: rotate(0deg);
     }
     to {
-        box-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000;
+        transform: rotate(360deg);
     }
 }
         
