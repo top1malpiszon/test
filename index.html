@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LukiSteve</title>
     <link rel="shortcut icon" type="lukistR.png" href="images/lukistR.png">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    
+
     <style>
         /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
         body {
@@ -34,6 +35,7 @@
             from {
                 background-position: 0% 0%;
             }
+
             to {
                 background-position: 100% 100%;
             }
@@ -52,26 +54,26 @@
         }
 
         /* ZMIENIONY KOD DLA PULSUJĄCEJ RAMKI */
-.avatar-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 0 0 4px #8A2BE2, 0 0 20px 8px rgba(138, 43, 226, 0.7);
-    animation: glow-pulse 2.5s infinite;
-}
-
-@keyframes glow-pulse {
-    0% {
+        .avatar-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 0 0 4px #8A2BE2, 0 0 20px 8px rgba(138, 43, 226, 0.7);
+        animation: glow-pulse 2.5s infinite;
+        }
+        
+        @keyframes glow-pulse {
+        0% {
         box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
-    }
-    50% {
+        }
+        50% {
         box-shadow: 0 0 0 4px #9198e5, 0 0 25px 12px rgba(145, 152, 229, 0.8);
-    }
-    100% {
+        }
+        100% {
         box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
-    }
-}
+        }
+        }
 
         .profile-name {
             margin-top: 10px;
@@ -85,67 +87,36 @@
             gap: 16px;
             margin-top: 20px;
         }
-        
-        /* Kod dla stałego, pulsującego czerwonego blasku na wszystkich kafelkach (cały czas) */
-.link-button {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    text-decoration: none;
-    color: #fff;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    /* Dodaję animację do podstawowego stylu .link-button */
-    animation: pulsate-red 1.5s infinite alternate;
+
+        /* Styl dla wszystkich linków w "kafelkach" */
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #fff;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .link-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #8b0000;
+    animation: fade-glow 2s infinite alternate;
 }
 
-/* Zastąp styl .link-button w całości tym, aby działał poprawnie */
-.link-button {
-    position: relative; /* Wymagane dla animacji */
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    text-decoration: none;
-    color: #fff;
-    overflow: hidden; /* Ukrywa fragmenty animacji poza ramką */
-    z-index: 1;
-}
-
-.link-button::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(#ff0000, transparent);
-    z-index: -1;
-    animation: rotate 4s linear infinite;
-}
-
-.link-button:hover::before {
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-}
-
-@keyframes rotate {
+@keyframes fade-glow {
     from {
-        transform: rotate(0deg);
+        box-shadow: 0 0 2px rgba(255, 0, 0, 0.4);
     }
     to {
-        transform: rotate(360deg);
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
     }
 }
-        
+
         .link-icon {
             width: 48px;
             height: 48px;
@@ -177,7 +148,7 @@
             opacity: 0.8;
             margin: 0;
         }
-        
+
         /* Styl dla linków w sekcji links-container */
         .links-container {
             display: flex;
@@ -228,6 +199,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="page-container">
@@ -239,7 +211,7 @@
             <div class="social-icons">
                 <a href="https://www.twitch.tv/lukisteve" target="_blank" class="link-button">
                     <div class="link-icon">
-                        <img src="images/twitch3.png" alt="Twitch Logo">
+                        <img src="images/twitch4.png" alt="Twitch Logo">
                     </div>
                     <div class="link-text">
                         <p class="link-title">Twitch</p>
@@ -248,7 +220,7 @@
                 </a>
                 <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="link-button">
                     <div class="link-icon">
-                        <img src="images/instagram2.png" alt="Instagram Logo">
+                        <img src="images/instagram5.png" alt="Instagram Logo">
                     </div>
                     <div class="link-text">
                         <p class="link-title">Instagram</p>
@@ -257,7 +229,7 @@
                 </a>
                 <a href="https://kick.com/lukisteve" target="_blank" class="link-button">
                     <div class="link-icon">
-                        <img src="images/kick2.png" alt="Kick Logo">
+                        <img src="images/kick.png" alt="Kick Logo">
                     </div>
                     <div class="link-text">
                         <p class="link-title">Kick</p>
