@@ -88,40 +88,89 @@
             margin-top: 20px;
         }
 
-        /* Nowa animacja - ramka ładowania */
+       /* Nowa animacja - kolista ramka ładowania */
 .link-button {
     position: relative;
     overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+}
+
+.link-button::before,
+.link-button::after,
+.link-button-icon::before,
+.link-button-icon::after {
+    content: '';
+    position: absolute;
+    background-color: #ff0000; /* Kolor animacji */
+}
+
+/* Animacja paska górnego */
+.link-button::before {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    transition: left 0.5s ease-out;
+}
+
+/* Animacja paska prawego */
+.link-button::after {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    transition: top 0.5s ease-out 0.5s; /* Opóźnienie po górnym pasku */
+}
+
+/* Animacja paska dolnego */
+.link-button-icon::before {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    transition: right 0.5s ease-out 1s; /* Opóźnienie po prawym pasku */
+}
+
+/* Animacja paska lewego */
+.link-button-icon::after {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    transition: bottom 0.5s ease-out 1.5s; /* Opóźnienie po dolnym pasku */
+}
+
+/* Stan :hover - rozpoczęcie animacji */
+.link-button:hover::before {
+    left: 0;
+}
+.link-button:hover::after {
+    top: 0;
+}
+.link-button-icon:hover::before {
+    right: 0;
+}
+.link-button-icon:hover::after {
+    bottom: 0;
+}
+
+/* Pozostałe style kafelka */
+.link-button {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     text-decoration: none;
     color: #fff;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.link-button::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 4px; /* Grubość paska ładowania */
-    background-color: #ff0000; /* Kolor paska */
-    transition: width 1s ease-out; /* Czas i typ animacji */
+    transition: background-color 0.3s ease;
 }
 
 .link-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    border-color: #8b0000;
-}
-
-.link-button:hover::before {
-    width: 100%; /* Pasek "ładuje się" na 100% szerokości */
 }
 
 @keyframes fade-glow {
