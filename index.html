@@ -9,11 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        /* NOWY KOD DLA MROCZNEGO TŁA Z ANIMACJĄ DYMU */
+        /* Base styles */
         body {
-            background-color: #0a0a0a;
+            background-color: #000000;
             color: #fff;
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -22,22 +23,20 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-image: 
-                linear-gradient(to top, rgba(26, 0, 0, 0.6) 0%, transparent 50%);
-            animation: dark-smoke-effect 15s ease-in-out infinite;
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(-45deg, #000000, #1a0000, #330000, #000000);
+            background-size: 400% 400%;
+            animation: background-animate 15s ease infinite;
         }
 
-        @keyframes dark-smoke-effect {
+        @keyframes background-animate {
             0% {
-                background-image: linear-gradient(to top, rgba(26, 0, 0, 0.6) 0%, transparent 50%);
+                background-position: 0% 50%;
             }
             50% {
-                background-image: linear-gradient(to top, rgba(51, 0, 0, 0.8) 0%, transparent 50%);
+                background-position: 100% 50%;
             }
             100% {
-                background-image: linear-gradient(to top, rgba(26, 0, 0, 0.6) 0%, transparent 50%);
+                background-position: 0% 50%;
             }
         }
 
@@ -47,10 +46,9 @@
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
-            position: relative;
-            z-index: 1;
         }
 
+        /* Profile avatar and name */
         .profile-avatar {
             margin-top: 20px;
         }
@@ -60,20 +58,16 @@
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #8B0000;
-            box-shadow: 0 0 15px 5px rgba(139, 0, 0, 0.5);
-            animation: sinister-glow 2.5s infinite;
+            border: 4px solid #cc0000;
+            box-shadow: 0 0 15px 5px rgba(204, 0, 0, 0.5);
+            animation: avatar-glow 2s infinite alternate;
         }
-
-        @keyframes sinister-glow {
-            0% {
-                box-shadow: 0 0 15px 5px rgba(139, 0, 0, 0.5);
+        @keyframes avatar-glow {
+            from {
+                box-shadow: 0 0 10px 3px rgba(204, 0, 0, 0.5), 0 0 20px 6px rgba(255, 0, 0, 0.3);
             }
-            50% {
-                box-shadow: 0 0 25px 10px rgba(255, 0, 0, 0.7);
-            }
-            100% {
-                box-shadow: 0 0 15px 5px rgba(139, 0, 0, 0.5);
+            to {
+                box-shadow: 0 0 20px 8px rgba(255, 0, 0, 0.8), 0 0 30px 12px rgba(255, 0, 0, 0.5);
             }
         }
 
@@ -81,34 +75,62 @@
             margin-top: 10px;
             font-size: 24px;
             font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
+        /* Social icons */
         .social-icons {
             display: flex;
             justify-content: center;
             gap: 16px;
             margin-top: 20px;
         }
+        
+        .social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+        }
 
+        .social-link:hover {
+            background-color: rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 20px 5px rgba(255, 0, 0, 0.5);
+            transform: scale(1.2);
+        }
+        
+        .social-link img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+
+        /* Link buttons */
         .link-button {
             display: flex;
             align-items: center;
             justify-content: flex-start;
             padding: 15px;
-            background-color: #1a1a1a;
-            border: 1px solid #2b2b2b;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             text-decoration: none;
             color: #fff;
-            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease-in-out;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         .link-button:hover {
-            background-color: #2b0000;
-            border-color: #8B0000;
-            box-shadow: 0 0 0 4px #5e0000, 0 0 25px 12px rgba(139, 0, 0, 0.7);
+            background-color: rgba(255, 0, 0, 0.15);
+            border-color: #ff0000;
+            box-shadow: 0 0 20px 5px rgba(255, 0, 0, 0.4);
         }
 
         .link-icon {
@@ -118,6 +140,7 @@
             border-radius: 8px;
             overflow: hidden;
             flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .link-icon img {
@@ -153,8 +176,9 @@
 
         .link-image-container {
             position: relative;
-            border-radius: 6px;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         .link-image-container .link-button {
@@ -166,6 +190,11 @@
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .link-image-container .link-button:hover .link-image-banner {
+            transform: scale(1.05);
         }
 
         .link-title-overlay {
@@ -175,52 +204,31 @@
             color: white;
             font-size: 20px;
             font-weight: 700;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
         }
 
-        .footer-logo {
+        .footer-text {
             margin-top: 40px;
-            opacity: 0.7;
-            font-size: 14px;
-        }
-
-        .footer-logo a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
+            font-size: 11px;
+            color: #aaa;
+            text-align: center;
+            line-height: 1.4;
+            opacity: 0.8;
         }
 
         .age-restriction-image {
             position: absolute;
             right: 5px;
-            top: 30px;
-            width: 20px;
+            top: 5px;
+            width: 25px;
             height: auto;
             z-index: 2;
         }
 
-        .link-loading-bar {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 4px;
-            background-color: #8B0000;
-            transition: width 0.8s ease-in-out;
-        }
-
-        .link-button:hover .link-loading-bar {
-            width: 100%;
-        }
-
-        /* Media queries dla lepszego wyglądu na telefonach */
+        /* Media queries for better mobile view */
         @media (max-width: 600px) {
             .social-icons {
-                flex-direction: column;
                 flex-wrap: wrap; 
-            }
-            .link-button {
-                justify-content: flex-start;
             }
         }
     </style>
@@ -235,35 +243,14 @@
             </div>
             <h1 class="profile-name">LukiSteve</h1>
             <div class="social-icons">
-                <a href="https://www.twitch.tv/lukisteve" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/twitch4.png" alt="Twitch Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Twitch</p>
-                        <p class="link-subtitle"></p>
-                    </div>
-                    <div class="link-loading-bar"></div>
+                <a href="https://www.twitch.tv/lukisteve" target="_blank" class="social-link">
+                    <img src="images/twitch4.png" alt="Twitch Logo">
                 </a>
-                <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/instagram5.png" alt="Instagram Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Instagram</p>
-                        <p class="link-subtitle"></p>
-                    </div>
-                    <div class="link-loading-bar"></div>
+                <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="social-link">
+                    <img src="images/instagram5.png" alt="Instagram Logo">
                 </a>
-                <a href="https://kick.com/lukisteve" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/kick.png" alt="Kick Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Kick</p>
-                        <p class="link-subtitle"></p>
-                    </div>
-                    <div class="link-loading-bar"></div>
+                <a href="https://kick.com/lukisteve" target="_blank" class="social-link">
+                    <img src="images/kick.png" alt="Kick Logo">
                 </a>
             </div>
         </header>
@@ -276,49 +263,46 @@
                 </div>
                 <div class="link-text">
                     <p class="link-title">CSGOSKINS - 2.10 I 10% WIĘCEJ DO DOŁADOWANIA</p>
-                    <p class="link-subtitle"></p>
+                    <p class="link-subtitle">Kod: LUKI</p>
                 </div>
-                <div class="link-loading-bar"></div>
             </a>
-
+            
             <a href="https://pirateswap.com/pl?ref=luki" target="_blank" class="link-button">
                 <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
                 <div class="link-icon">
                     <img src="images/pirateswap.png" alt="PIRATESWAP icon">
                 </div>
                 <div class="link-text">
-                    <p class="link-title">PIRATESWAP - BONUS 35% DO DEPOZYTU Z KODEM LUKI</p>
-                    <p class="link-subtitle"></p>
+                    <p class="link-title">PIRATESWAP - BONUS 35% DO DEPOZYTU</p>
+                    <p class="link-subtitle">Kod: LUKI</p>
                 </div>
-                <div class="link-loading-bar"></div>
             </a>
             <a href="http://pl.weareholy.com/LukiSteve" target="_blank" class="link-button">
                 <div class="link-icon">
                     <img src="images/holy2.png" alt="holy icon">
                 </div>
                 <div class="link-text">
-                    <p class="link-title">Z KODEM "LUKI" 10% ZNIŻKI NA ZAMÓWIENIE</p>
-                    <p class="link-subtitle"></p>
+                    <p class="link-title">HOLY ENERGY - 10% ZNIŻKI NA ZAMÓWIENIE</p>
+                    <p class="link-subtitle">Kod: LUKI</p>
                 </div>
-                <div class="link-loading-bar"></div>
             </a>
 
             <div class="link-image-container">
                 <a href="https://discord.gg/piraci" target="_blank" class="link-button">
                     <img src="images/discord-banner.jpg" alt="Discord Piratów" class="link-image-banner">
-                    <p class="link-title-overlay">DISCORD PIRATÓW!</p>
+                    <p class="link-title-overlay">DOŁĄCZ DO NASZEGO DISCORDA!</p>
                 </a>
             </div>
         </main>
 
-        <!-- STOPKA Z OSTRZEŻENIEM -->
-        <footer style="margin-top:40px; font-size:11px; color:#aaa; text-align:center; line-height:1.4; opacity:0.8;">
+        <!-- FOOTER Z OSTRZEŻENIEM -->
+        <footer class="footer-text">
             <strong>⚠️ GRAJ ODPOWIEDZIALNIE! ⚠️</strong><br>
-            Ta strona zawiera linki do zewnętrznych serwisów.
-            Korzystanie z nich odbywa się na własną odpowiedzialność i powinno być zgodne
-            z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych
+            Ta strona zawiera linki do zewnętrznych serwisów. 
+            Korzystanie z nich odbywa się na własną odpowiedzialność i powinno być zgodne 
+            z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych 
             i nie ponosimy odpowiedzialności za skutki korzystania z tych serwisów.
         </footer>
-    </div> <!-- zamyka page-container -->
+    </div>
 </body>
 </html>
