@@ -82,11 +82,36 @@
             font-weight: 700;
         }
 
-        .social-icons {
+        /* ZAKTUALIZOWANE STYLE DLA IKON SPOŁECZNOŚCIOWYCH */
+        .social-icons-container {
             display: flex;
             justify-content: center;
             gap: 16px;
             margin-top: 20px;
+        }
+
+        /* Styl dla pojedynczego linku społecznościowego, który rośnie, by wypełnić przestrzeń */
+        .social-link-button {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 15px;
+            background-color: rgba(16, 10, 11, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #fff;
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .social-link-button:hover {
+            background-color: rgba(59, 0, 0, 0.8);
+            border-color: #8B0000;
+            box-shadow: 0 0 0 4px #700000, 0 0 25px 12px rgba(112, 0, 0, 0.8);
         }
 
         /* STYLE DLA WSZYSTKICH LINKÓW */
@@ -96,7 +121,6 @@
             justify-content: flex-start;
             padding: 15px;
             background-color: rgba(16, 10, 11, 0.5);
-            /* Ciemniejsze tło */
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             text-decoration: none;
@@ -107,8 +131,7 @@
             width: 100%;
             box-sizing: border-box;
         }
-        
-        /* ZAKTUALIZOWANE STYLE DLA EFEKTU PO NAJECHANIU - TERAZ BEZ ANIMACJI I Z CIEMNIEJSZYM KOLOREM */
+
         .link-button:hover {
             background-color: rgba(59, 0, 0, 0.8);
             border-color: #8B0000;
@@ -220,8 +243,9 @@
 
         /* Dopasowanie do urządzeń mobilnych */
         @media (max-width: 600px) {
-            .social-icons {
+            .social-icons-container {
                 flex-direction: column;
+                flex-wrap: wrap;
             }
             .link-button {
                 justify-content: flex-start;
@@ -239,8 +263,8 @@
                 <img src="images/avatar.png" alt="LukiSteve Avatar" class="avatar-image">
             </div>
             <h1 class="profile-name">LukiSteve</h1>
-            <div class="social-icons">
-                <a href="https://www.twitch.tv/lukisteve" target="_blank" class="link-button">
+            <div class="social-icons-container">
+                <a href="https://www.twitch.tv/lukisteve" target="_blank" class="social-link-button">
                     <!-- UWAGA: Ten plik, "twitch4.png", nie jest dostępny w tym środowisku. -->
                     <div class="link-icon">
                         <img src="images/twitch4.png" alt="Twitch Logo">
@@ -251,7 +275,7 @@
                     </div>
                     <div class="link-loading-bar"></div>
                 </a>
-                <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="link-button">
+                <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="social-link-button">
                     <!-- UWAGA: Ten plik, "instagram5.png", nie jest dostępny w tym środowisku. -->
                     <div class="link-icon">
                         <img src="images/instagram5.png" alt="Instagram Logo">
@@ -262,7 +286,7 @@
                     </div>
                     <div class="link-loading-bar"></div>
                 </a>
-                <a href="https://kick.com/lukisteve" target="_blank" class="link-button">
+                <a href="https://kick.com/lukisteve" target="_blank" class="social-link-button">
                     <!-- UWAGA: Ten plik, "kick.png", nie jest dostępny w tym środowisku. -->
                     <div class="link-icon">
                         <img src="images/kick.png" alt="Kick Logo">
