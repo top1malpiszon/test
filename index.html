@@ -71,7 +71,7 @@
             margin-top: 20px;
         }
 
-        /* STYL CYBERPUNK DLA IKON SPOŁECZNOŚCIOWYCH - CZERWONE */
+        /* POPRAWIONY STYL DLA IKON SPOŁECZNOŚCIOWYCH */
         .social-link {
             display: inline-flex;
             justify-content: center;
@@ -83,6 +83,8 @@
             border-radius: 50%;
             transition: all 0.3s ease;
             box-shadow: 0 0 10px #ff3333;
+            /* Nowe style */
+            overflow: hidden; 
         }
 
         .social-link:hover {
@@ -91,9 +93,9 @@
         }
         
         .social-link img {
-            width: 32px;
-            height: 32px;
-            object-fit: contain;
+            width: 100%; /* Obrazek wypełnia cały kafelek */
+            height: 100%;
+            object-fit: cover;
             filter: drop-shadow(0 0 5px #ff3333);
         }
 
