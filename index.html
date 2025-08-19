@@ -4,29 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LukiSteve | Cyberpunk Style - Dark Red</title>
+    <title>LukiSteve | Fluid Dark Red</title>
     <link rel="shortcut icon" type="lukistR.png" href="images/lukistR.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* TŁO W STYLU CYBERPUNKOWYM Z CZERWONYMI AKCENTAMI */
+        /* PŁYNNE TŁO Z PULSUJĄCYMI KSZTAŁTAMI */
         body {
             background-color: #0d0d0d;
-            background-image:
-                linear-gradient(rgba(150, 1, 1, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(150, 1, 1, 0.05) 1px, transparent 1px);
-            background-size: 20px 20px;
+            overflow: hidden;
+            position: relative;
             color: #fff;
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+        }
+
+        /* Tworzenie animowanych kształtów w tle */
+        body::before,
+        body::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(255, 0, 0, 0.1);
+            filter: blur(100px);
+            z-index: -1;
+            animation: move-shapes 15s ease-in-out infinite alternate;
+        }
+
+        body::before {
+            top: 10%;
+            left: 5%;
+            background: rgba(139, 0, 0, 0.2);
+            animation-duration: 20s;
+        }
+
+        body::after {
+            bottom: 10%;
+            right: 5%;
+            background: rgba(255, 0, 0, 0.15);
+            animation-duration: 18s;
+            animation-delay: -5s;
+        }
+
+        @keyframes move-shapes {
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+            to {
+                transform: translate(50px, 150px) scale(1.2);
+            }
         }
 
         .page-container {
@@ -36,8 +72,9 @@
             box-sizing: border-box;
             text-align: center;
             background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 0, 0, 0.2);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
         }
 
         .profile-avatar {
@@ -45,14 +82,14 @@
             position: relative;
         }
 
-        /* EFEKT GLITCH NA AWATARZE - TERAZ W CZERWIENI */
+        /* AWATAR Z MIĘKKIM PODŚWIETLENIEM */
         .avatar-image {
             width: 120px;
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #ff3333;
-            box-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333, 0 0 30px #ff3333;
+            border: 3px solid rgba(255, 51, 51, 0.5);
+            box-shadow: 0 0 15px #ff3333;
             transition: all 0.3s ease;
         }
 
@@ -60,7 +97,7 @@
             margin-top: 10px;
             font-size: 24px;
             font-weight: 700;
-            color: #ff3333;
+            color: #fff;
             text-shadow: 0 0 5px #ff3333;
         }
 
@@ -71,66 +108,66 @@
             margin-top: 20px;
         }
 
-        /* POPRAWIONY STYL DLA IKON SPOŁECZNOŚCIOWYCH */
+        /* PŁYNNE IKONY SPOŁECZNOŚCIOWE */
         .social-link {
             display: inline-flex;
             justify-content: center;
             align-items: center;
             width: 55px;
             height: 55px;
-            background-color: rgba(0, 0, 0, 0.5);
-            border: 1px solid #ff3333;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px #ff3333;
-            /* Nowe style */
-            overflow: hidden; 
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+            overflow: hidden;
         }
 
         .social-link:hover {
             box-shadow: 0 0 20px #ff3333, 0 0 30px #ff3333;
             transform: translateY(-5px) scale(1.1);
+            background: rgba(255, 51, 51, 0.1);
         }
         
         .social-link img {
-            width: 100%; /* Obrazek wypełnia cały kafelek */
+            width: 100%;
             height: 100%;
             object-fit: cover;
             filter: drop-shadow(0 0 5px #ff3333);
         }
 
-        /* STYL CYBERPUNK DLA LINKÓW/KAFELKÓW - CZERWONE AKCENTY */
+        /* PŁYNNE LINKI/KAFELKI */
         .link-button {
             display: flex;
             align-items: center;
             justify-content: flex-start;
             padding: 15px;
-            background-color: #1a1a1a;
-            border: 2px solid #ff3333;
-            border-radius: 0;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 12px;
             text-decoration: none;
             color: #fff;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 10px #ff3333;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
         }
 
         .link-button:hover {
-            background-color: #2a2a2a;
-            border-color: #ff0000;
-            box-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000;
-            transform: perspective(500px) rotateX(5deg) translateY(-5px);
+            background-color: rgba(255, 51, 51, 0.1);
+            border-color: #ff3333;
+            box-shadow: 0 0 20px #ff3333;
+            transform: translateY(-5px);
         }
 
         .link-icon {
             width: 48px;
             height: 48px;
             margin-right: 15px;
-            border-radius: 0;
+            border-radius: 8px;
             overflow: hidden;
             flex-shrink: 0;
-            border: 1px solid #ff3333;
+            box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
         }
 
         .link-icon img {
@@ -156,7 +193,7 @@
             font-size: 12px;
             opacity: 0.7;
             margin: 0;
-            color: #999;
+            color: #ccc;
         }
 
         .links-container {
@@ -168,21 +205,23 @@
 
         .link-image-container {
             position: relative;
-            border-radius: 0;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 0 10px #ff3333;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
         }
 
         .link-image-container .link-button {
             padding: 0;
             display: block;
+            border: none;
+            background-color: transparent;
         }
 
         .link-image-banner {
             width: 100%;
             height: auto;
             display: block;
-            filter: brightness(0.8) contrast(1.2);
+            filter: brightness(0.9) contrast(1.1);
         }
 
         .link-title-overlay {
@@ -192,7 +231,7 @@
             color: white;
             font-size: 20px;
             font-weight: 700;
-            text-shadow: 0 0 5px #ff3333, 0 0 10px #ff3333;
+            text-shadow: 0 0 5px #ff3333;
         }
 
         .footer-logo {
@@ -231,7 +270,6 @@
         .link-button:hover .link-loading-bar {
             width: 100%;
         }
-
     </style>
 </head>
 
