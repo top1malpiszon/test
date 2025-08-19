@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LukiSteve | Fluid Dark Red</title>
-    <link rel="shortcut icon" type="image/png" href="https://placehold.co/16x16/0d0d0d/ff3333?text=LS">
+    <title>LukiSteve</title>
+    <link rel="shortcut icon" type="lukistR.png" href="images/lukistR.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* PŁYNNE TŁO Z PULSUJĄCYMI KSZTAŁTAMI */
+        /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
         body {
-            background-color: #0d0d0d;
-            overflow: hidden;
-            position: relative;
+            background-color: #000000;
+            background-image:
+                radial-gradient(circle at 100% 100%, transparent 10%, #160a0b 15%, #220000 20%, #3b0000 30%, transparent 45%),
+                radial-gradient(circle at 0% 0%, transparent 10%, #160a0b 15%, #220000 20%, #3b0000 30%, transparent 45%);
+            background-size: 200% 200%;
+            background-position: 50% 50%;
+            animation: ocean-waves 12s ease-in-out infinite alternate;
             color: #fff;
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -26,44 +31,13 @@
             min-height: 100vh;
         }
 
-        /* Tworzenie animowanych kształtów w tle */
-        body::before,
-        body::after {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            background: rgba(255, 0, 0, 0.1);
-            filter: blur(100px);
-            z-index: -1;
-            animation: move-shapes 15s ease-in-out infinite alternate;
-        }
-
-        body::before {
-            top: 10%;
-            left: 5%;
-            background: rgba(139, 0, 0, 0.2);
-            animation-duration: 20s;
-        }
-
-        body::after {
-            bottom: 10%;
-            right: 5%;
-            background: rgba(255, 0, 0, 0.15);
-            animation-duration: 18s;
-            animation-delay: -5s;
-        }
-
-        @keyframes move-shapes {
-            0% {
-                transform: translate(0, 0) scale(1);
+        @keyframes ocean-waves {
+            from {
+                background-position: 0% 0%;
             }
-            50% {
-                transform: translate(50px, 150px) scale(1.2);
-            }
-            100% {
-                transform: translate(0, 0) scale(1);
+
+            to {
+                background-position: 100% 100%;
             }
         }
 
@@ -73,34 +47,40 @@
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
         }
 
         .profile-avatar {
             margin-top: 20px;
-            position: relative;
         }
 
-        /* AWATAR Z MIĘKKIM PODŚWIETLENIEM */
+        /* ZMIENIONY KOD DLA PULSUJĄCEJ RAMKI */
         .avatar-image {
             width: 120px;
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid rgba(255, 51, 51, 0.5);
-            box-shadow: 0 0 15px #ff3333;
-            transition: all 0.3s ease;
+            box-shadow: 0 0 0 4px #8A2BE2, 0 0 20px 8px rgba(138, 43, 226, 0.7);
+            animation: glow-pulse 2.5s infinite;
+        }
+
+        @keyframes glow-pulse {
+            0% {
+                box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 0 4px #9198e5, 0 0 25px 12px rgba(145, 152, 229, 0.8);
+            }
+
+            100% {
+                box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
+            }
         }
 
         .profile-name {
             margin-top: 10px;
             font-size: 24px;
             font-weight: 700;
-            color: #fff;
-            text-shadow: 0 0 5px #ff3333;
         }
 
         .social-icons {
@@ -110,56 +90,29 @@
             margin-top: 20px;
         }
 
-        /* PŁYNNE IKONY SPOŁECZNOŚCIOWE ZMIENIONE NA KWADRATOWE */
-        .social-link {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 55px;
-            height: 55px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px; /* Zmieniono na kwadratowe z zaokrąglonymi rogami */
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
-            overflow: hidden;
-        }
-
-        .social-link:hover {
-            box-shadow: 0 0 20px #ff3333, 0 0 30px #ff3333;
-            transform: translateY(-5px) scale(1.1);
-            background: rgba(255, 51, 51, 0.1);
-        }
-        
-        .social-link img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: drop-shadow(0 0 5px #ff3333);
-        }
-
-        /* PŁYNNE LINKI/KAFELKI */
+        /* ZMIENIONE STYLE DLA WSZYSTKICH LINKÓW/KAFELKÓW, ABY PASOWAŁY DO TŁA */
         .link-button {
             display: flex;
             align-items: center;
             justify-content: flex-start;
             padding: 15px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 0, 0, 0.3);
+            background-color: rgba(16, 10, 11, 0.5);
+            /* Ciemniejsze tło */
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             text-decoration: none;
             color: #fff;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Dodano box-shadow do transition */
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
         }
 
         .link-button:hover {
-            background-color: rgba(255, 51, 51, 0.1);
-            border-color: #ff3333;
-            box-shadow: 0 0 20px #ff3333;
-            transform: translateY(-5px);
+            background-color: rgba(59, 0, 0, 0.8);
+            /* Czerwień po najechaniu myszką */
+            border-color: #ff4d4d;
+            /* Czerwień na krawędzi */
+            box-shadow: 0 0 20px rgba(255, 77, 77, 0.5); /* Poświata po najechaniu */
         }
 
         .link-icon {
@@ -169,7 +122,6 @@
             border-radius: 8px;
             overflow: hidden;
             flex-shrink: 0;
-            box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
         }
 
         .link-icon img {
@@ -187,15 +139,13 @@
             font-weight: 700;
             font-size: 16px;
             margin: 0;
-            color: #fff;
         }
 
         .link-subtitle {
             font-weight: 400;
             font-size: 12px;
-            opacity: 0.7;
+            opacity: 0.8;
             margin: 0;
-            color: #ccc;
         }
 
         .links-container {
@@ -207,23 +157,19 @@
 
         .link-image-container {
             position: relative;
-            border-radius: 12px;
+            border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
         }
 
         .link-image-container .link-button {
             padding: 0;
             display: block;
-            border: none;
-            background-color: transparent;
         }
 
         .link-image-banner {
             width: 100%;
             height: auto;
             display: block;
-            filter: brightness(0.9) contrast(1.1);
         }
 
         .link-title-overlay {
@@ -233,7 +179,7 @@
             color: white;
             font-size: 20px;
             font-weight: 700;
-            text-shadow: 0 0 5px #ff3333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
 
         .footer-logo {
@@ -243,30 +189,35 @@
         }
 
         .footer-logo a {
-            color: #ff3333;
+            color: #fff;
             text-decoration: none;
             font-weight: 700;
         }
 
         .age-restriction-image {
             position: absolute;
-            right: 10px;
-            top: 10px;
-            width: 25px;
+            right: 5px;
+            top: 30px;
+            width: 20px;
             height: auto;
             z-index: 2;
-            filter: drop-shadow(0 0 5px #ff3333);
+            transition: box-shadow 0.3s ease; /* Dodano transition dla cienia */
         }
 
+        /* Nowa klasa dla podświetlenia obrazka 18+ */
+        .highlighted-18-plus {
+            box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.7); /* Czerwona poświata */
+        }
+
+        /* Pasek ładowania */
         .link-loading-bar {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 0;
             height: 4px;
-            background-color: #ff3333;
+            background-color: #ff002b;
             transition: width 0.8s ease-in-out;
-            box-shadow: 0 0 5px #ff3333;
         }
 
         .link-button:hover .link-loading-bar {
@@ -280,27 +231,49 @@
     <div class="page-container">
         <header class="profile-header">
             <div class="profile-avatar">
-                <img src="https://placehold.co/120x120/0d0d0d/ff3333?text=LS" alt="LukiSteve Avatar" class="avatar-image">
+                <img src="images/avatar.png" alt="LukiSteve Avatar" class="avatar-image">
             </div>
             <h1 class="profile-name">LukiSteve</h1>
             <div class="social-icons">
-                <a href="https://www.twitch.tv/lukisteve" target="_blank" class="social-link">
-                    <img src="https://placehold.co/55x55/0d0d0d/ff3333?text=TW" alt="Twitch Logo">
+                <a href="https://www.twitch.tv/lukisteve" target="_blank" class="link-button">
+                    <div class="link-icon">
+                        <img src="images/twitch4.png" alt="Twitch Logo">
+                    </div>
+                    <div class="link-text">
+                        <p class="link-title">Twitch</p>
+                        <p class="link-subtitle"></p>
+                    </div>
+                    <div class="link-loading-bar"></div>
                 </a>
-                <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="social-link">
-                    <img src="https://placehold.co/55x55/0d0d0d/ff3333?text=IG" alt="Instagram Logo">
+                <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="link-button">
+                    <div class="link-icon">
+                        <img src="images/instagram5.png" alt="Instagram Logo">
+                    </div>
+                    <div class="link-text">
+                        <p class="link-title">Instagram</p>
+                        <p class="link-subtitle"></p>
+                    </div>
+                    <div class="link-loading-bar"></div>
                 </a>
-                <a href="https://kick.com/lukisteve" target="_blank" class="social-link">
-                    <img src="https://placehold.co/55x55/0d0d0d/ff3333?text=K" alt="Kick Logo">
+                <a href="https://kick.com/lukisteve" target="_blank" class="link-button">
+                    <div class="link-icon">
+                        <img src="images/kick.png" alt="Kick Logo">
+                    </div>
+                    <div class="link-text">
+                        <p class="link-title">Kick</p>
+                        <p class="link-subtitle"></p>
+                    </div>
+                    <div class="link-loading-bar"></div>
                 </a>
             </div>
         </header>
 
         <main class="links-container">
             <a href="https://csgo-skins.com/?ref=LUKI" target="_blank" class="link-button">
-                <img src="https://placehold.co/25x25/0d0d0d/ff3333?text=18" alt="18+" class="age-restriction-image">
+                <!-- Dodano klasę do podświetlenia obrazka 18+ -->
+                <img src="images/tylko18x.png" alt="18+" class="age-restriction-image highlighted-18-plus">
                 <div class="link-icon">
-                    <img src="https://placehold.co/48x48/0d0d0d/ff3333?text=CS" alt="CSGOSKINS icon">
+                    <img src="images/csgoskins.png" alt="CSGOSKINS icon">
                 </div>
                 <div class="link-text">
                     <p class="link-title">CSGOSKINS - 2.10 I 10% WIĘCEJ DO DOŁADOWANIA</p>
@@ -308,11 +281,11 @@
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
-            
+
             <a href="https://pirateswap.com/pl?ref=luki" target="_blank" class="link-button">
-                <img src="https://placehold.co/25x25/0d0d0d/ff3333?text=18" alt="18+" class="age-restriction-image">
+                <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
                 <div class="link-icon">
-                    <img src="https://placehold.co/48x48/0d0d0d/ff3333?text=PS" alt="PIRATESWAP icon">
+                    <img src="images/pirateswap.png" alt="PIRATESWAP icon">
                 </div>
                 <div class="link-text">
                     <p class="link-title">PIRATESWAP - BONUS 35% DO DEPOZYTU Z KODEM LUKI</p>
@@ -322,7 +295,7 @@
             </a>
             <a href="http://pl.weareholy.com/LukiSteve" target="_blank" class="link-button">
                 <div class="link-icon">
-                    <img src="https://placehold.co/48x48/0d0d0d/ff3333?text=H" alt="holy icon">
+                    <img src="images/holy2.png" alt="holy icon">
                 </div>
                 <div class="link-text">
                     <p class="link-title">Z KODEM "LUKI" 10% ZNIŻKI NA ZAMÓWIENIE</p>
@@ -333,7 +306,7 @@
 
             <div class="link-image-container">
                 <a href="https://discord.gg/piraci" target="_blank" class="link-button">
-                    <img src="https://placehold.co/600x200/0d0d0d/ff3333?text=DISCORD" alt="Discord Piratów" class="link-image-banner">
+                    <img src="images/discord-banner.jpg" alt="Discord Piratów" class="link-image-banner">
                     <p class="link-title-overlay">DISCORD PIRATÓW!</p>
                 </a>
             </div>
@@ -342,11 +315,12 @@
         <!-- STOPKA Z OSTRZEŻENIEM -->
         <footer style="margin-top:40px; font-size:11px; color:#aaa; text-align:center; line-height:1.4; opacity:0.8;">
             <strong>⚠️ GRAJ ODPOWIEDZIALNIE! ⚠️</strong><br>
-            Ta strona zawiera linki do zewnętrznych serwisów. 
-            Korzystanie z nich odbywa się na własną odpowiedzialność i powinno być zgodne 
-            z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych 
+            Ta strona zawiera linki do zewnętrznych serwisów.
+            Korzystanie z nich odbywa się na własną odpowiedzialność i powinno być zgodne
+            z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych
             i nie ponosimy odpowiedzialności za skutki korzystania z tych serwisów.
         </footer>
     </div> <!-- zamyka page-container -->
 </body>
+
 </html>
