@@ -101,32 +101,18 @@
             border-radius: 12px;
             text-decoration: none;
             color: #fff;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
             width: 100%;
             box-sizing: border-box;
         }
-
+        
+        /* ZAKTUALIZOWANE STYLE DLA EFEKTU PO NAJECHANIU - TERAZ BEZ ANIMACJI I Z CIEMNIEJSZYM KOLOREM */
         .link-button:hover {
             background-color: rgba(59, 0, 0, 0.8);
-            border-color: #ff4d4d;
-            animation: glow-pulse-link 2.5s infinite;
-        }
-
-        /* Nowa animacja dla kafelków po najechaniu */
-        @keyframes glow-pulse-link {
-            0% {
-                box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
-            }
-
-            50% {
-                box-shadow: 0 0 0 4px #9198e5, 0 0 25px 12px rgba(145, 152, 229, 0.8);
-            }
-
-            100% {
-                box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
-            }
+            border-color: #8B0000;
+            box-shadow: 0 0 0 4px #700000, 0 0 25px 12px rgba(112, 0, 0, 0.8);
         }
 
         .link-icon {
