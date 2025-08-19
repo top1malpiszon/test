@@ -12,12 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS DLA TŁA I OGÓLNE STYLIZACJE */
+        /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
         body {
             background-color: #000000;
             background-image:
-                radial-gradient(circle at 100% 100%, transparent 10%, #0a0a1a 15%, #1a0a0a 25%, #000000 40%, transparent 45%),
-                radial-gradient(circle at 0% 0%, transparent 10%, #0a0a1a 15%, #1a0a0a 25%, #000000 40%, transparent 45%);
+                radial-gradient(circle at 100% 100%, transparent 10%, #160a0b 15%, #220000 20%, #3b0000 30%, transparent 45%),
+                radial-gradient(circle at 0% 0%, transparent 10%, #160a0b 15%, #220000 20%, #3b0000 30%, transparent 45%);
             background-size: 200% 200%;
             background-position: 50% 50%;
             animation: ocean-waves 12s ease-in-out infinite alternate;
@@ -53,24 +53,27 @@
             margin-top: 20px;
         }
 
-        /* ZMIENIONY KOD DLA PULSUJĄCEJ RAMKI - DOPASOWANY DO NOWEGO TŁA */
+        /* ZMIENIONY KOD DLA PULSUJĄCEJ RAMKI */
         .avatar-image {
             width: 120px;
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
+            box-shadow: 0 0 0 4px #8A2BE2, 0 0 20px 8px rgba(138, 43, 226, 0.7);
             animation: glow-pulse 2.5s infinite;
         }
-        
+
         @keyframes glow-pulse {
             0% {
-                box-shadow: 0 0 0 4px #5e0000, 0 0 20px 8px rgba(94, 0, 0, 0.5);
+                box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
             }
+
             50% {
-                box-shadow: 0 0 0 4px #00004d, 0 0 25px 12px rgba(0, 0, 77, 0.8);
+                box-shadow: 0 0 0 4px #9198e5, 0 0 25px 12px rgba(145, 152, 229, 0.8);
             }
+
             100% {
-                box-shadow: 0 0 0 4px #5e0000, 0 0 20px 8px rgba(94, 0, 0, 0.5);
+                box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
             }
         }
 
@@ -80,45 +83,21 @@
             font-weight: 700;
         }
 
-        /* NOWY, BARDZIEJ STONOWANY STYL DLA IKON SPOŁECZNOŚCIOWYCH */
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 16px;
             margin-top: 20px;
         }
 
-        .social-link {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 50%;
-            transition: all 0.4s ease;
-        }
-        
-        .social-link:hover {
-            background-color: rgba(0, 0, 0, 0.5);
-            box-shadow: 0 0 10px #8b0000, 0 0 20px #000080;
-            transform: scale(1.1);
-        }
-        
-        .social-link img {
-            width: 30px;
-            height: 30px;
-            object-fit: contain;
-        }
-
-        /* Styl dla wszystkich linków w "kafelkach" */
+        /* ZMIENIONE STYLE DLA WSZYSTKICH LINKÓW/KAFELKÓW, ABY PASOWAŁY DO TŁA */
         .link-button {
             display: flex;
             align-items: center;
             justify-content: flex-start;
             padding: 15px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(16, 10, 11, 0.5); /* Ciemniejsze tło */
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             text-decoration: none;
             color: #fff;
@@ -128,8 +107,8 @@
         }
 
         .link-button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-color: #ff002b;
+            background-color: rgba(59, 0, 0, 0.8); /* Czerwień po najechaniu myszką */
+            border-color: #ff4d4d; /* Czerwień na krawędzi */
         }
 
         .link-icon {
@@ -219,6 +198,7 @@
             height: auto;
             z-index: 2;
         }
+
         /* Pasek ładowania */
         .link-loading-bar {
             position: absolute;
@@ -245,14 +225,35 @@
             </div>
             <h1 class="profile-name">LukiSteve</h1>
             <div class="social-icons">
-                <a href="https://www.twitch.tv/lukisteve" target="_blank" class="social-link">
-                    <img src="images/twitch4.png" alt="Twitch Logo">
+                <a href="https://www.twitch.tv/lukisteve" target="_blank" class="link-button">
+                    <div class="link-icon">
+                        <img src="images/twitch4.png" alt="Twitch Logo">
+                    </div>
+                    <div class="link-text">
+                        <p class="link-title">Twitch</p>
+                        <p class="link-subtitle"></p>
+                    </div>
+                    <div class="link-loading-bar"></div>
                 </a>
-                <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="social-link">
-                    <img src="images/instagram5.png" alt="Instagram Logo">
+                <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="link-button">
+                    <div class="link-icon">
+                        <img src="images/instagram5.png" alt="Instagram Logo">
+                    </div>
+                    <div class="link-text">
+                        <p class="link-title">Instagram</p>
+                        <p class="link-subtitle"></p>
+                    </div>
+                    <div class="link-loading-bar"></div>
                 </a>
-                <a href="https://kick.com/lukisteve" target="_blank" class="social-link">
-                    <img src="images/kick.png" alt="Kick Logo">
+                <a href="https://kick.com/lukisteve" target="_blank" class="link-button">
+                    <div class="link-icon">
+                        <img src="images/kick.png" alt="Kick Logo">
+                    </div>
+                    <div class="link-text">
+                        <p class="link-title">Kick</p>
+                        <p class="link-subtitle"></p>
+                    </div>
+                    <div class="link-loading-bar"></div>
                 </a>
             </div>
         </header>
@@ -269,7 +270,7 @@
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
-            
+
             <a href="https://pirateswap.com/pl?ref=luki" target="_blank" class="link-button">
                 <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
                 <div class="link-icon">
@@ -303,11 +304,12 @@
         <!-- STOPKA Z OSTRZEŻENIEM -->
         <footer style="margin-top:40px; font-size:11px; color:#aaa; text-align:center; line-height:1.4; opacity:0.8;">
             <strong>⚠️ GRAJ ODPOWIEDZIALNIE! ⚠️</strong><br>
-            Ta strona zawiera linki do zewnętrznych serwisów. 
-            Korzystanie z nich odbywa się na własną odpowiedzialność i powinno być zgodne 
-            z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych 
+            Ta strona zawiera linki do zewnętrznych serwisów.
+            Korzystanie z nich odbywa się na własną odpowiedzialność i powinno być zgodne
+            z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych
             i nie ponosimy odpowiedzialności za skutki korzystania z tych serwisów.
         </footer>
     </div> <!-- zamyka page-container -->
 </body>
+
 </html>
