@@ -88,25 +88,103 @@
             margin-top: 20px;
         }
 
-        /* Styl dla wszystkich linków w "kafelkach" */
-        .link-button {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            text-decoration: none;
-            color: #fff;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
+        /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
+body {
+    background-color: #000000;
+    background-image:
+        radial-gradient(circle at 100% 100%, transparent 10%, #160a0b 15%, #220000 20%, #3b0000 30%, transparent 45%),
+        radial-gradient(circle at 0% 0%, transparent 10%, #160a0b 15%, #220000 20%, #3b0000 30%, transparent 45%);
+    background-size: 200% 200%;
+    background-position: 50% 50%;
+    animation: ocean-waves 12s ease-in-out infinite alternate;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-        .link-button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-color: #8b0000;
-            /* Zmieniony kolor ramki na pasujący do motywu */
-        }
+@keyframes ocean-waves {
+    from {
+        background-position: 0% 0%;
+    }
+
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+.page-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.profile-avatar {
+    margin-top: 20px;
+}
+
+.avatar-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 4px #8A2BE2, 0 0 20px 8px rgba(138, 43, 226, 0.7);
+    animation: glow-pulse 2.5s infinite;
+}
+    
+@keyframes glow-pulse {
+    0% {
+        box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 0 4px #9198e5, 0 0 25px 12px rgba(145, 152, 229, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
+    }
+}
+
+.profile-name {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+/* Zaktualizowany styl dla kafelka, bez blasku */
+.link-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    text-decoration: none;
+    color: #8b0000;
+    transition: background-color 0.3s ease;
+    
+    /* Usunięto: box-shadow: 0 0 15px rgba(255, 0, 0, 0.5); */ 
+    
+    position: relative;
+}
+
+/* Usunięcie animacji po najechaniu */
+.link-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
 
 .link-icon {
     width: 48px;
