@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="pl">
 
 <head>
@@ -81,12 +81,37 @@
             font-weight: 700;
         }
 
+        /* --- NOWY KOD CSS DLA IKON SPOŁECZNOŚCIOWYCH --- */
         .social-icons {
             display: flex;
             justify-content: center;
             gap: 16px;
             margin-top: 20px;
         }
+
+        .social-link {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+
+        .social-link img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+        /* ------------------------------------------------ */
 
         /* Styl dla wszystkich linków w "kafelkach" */
         .link-button {
@@ -222,38 +247,19 @@
                 <img src="images/avatar.png" alt="LukiSteve Avatar" class="avatar-image">
             </div>
             <h1 class="profile-name">LukiSteve</h1>
+            <!-- --- ZMIENIONY BLOK HTML DLA IKON SPOŁECZNOŚCIOWYCH --- -->
             <div class="social-icons">
-                <a href="https://www.twitch.tv/lukisteve" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/twitch4.png" alt="Twitch Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Twitch</p>
-                        <p class="link-subtitle"></p>
-                    </div>
-                    <div class="link-loading-bar"></div>
+                <a href="https://www.twitch.tv/lukisteve" target="_blank" class="social-link">
+                    <img src="images/twitch4.png" alt="Twitch Logo">
                 </a>
-                <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/instagram5.png" alt="Instagram Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Instagram</p>
-                        <p class="link-subtitle"></p>
-                    </div>
-                    <div class="link-loading-bar"></div>
+                <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="social-link">
+                    <img src="images/instagram5.png" alt="Instagram Logo">
                 </a>
-                <a href="https://kick.com/lukisteve" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/kick.png" alt="Kick Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Kick</p>
-                        <p class="link-subtitle"></p>
-                    </div>
-                    <div class="link-loading-bar"></div>
+                <a href="https://kick.com/lukisteve" target="_blank" class="social-link">
+                    <img src="images/kick.png" alt="Kick Logo">
                 </a>
             </div>
+            <!-- ------------------------------------------------------ -->
         </header>
 
         <main class="links-container">
@@ -297,7 +303,7 @@
                     <p class="link-title-overlay">DISCORD PIRATÓW!</p>
                 </a>
             </div>
-                </main>
+        </main>
 
         <!-- STOPKA Z OSTRZEŻENIEM -->
         <footer style="margin-top:40px; font-size:11px; color:#aaa; text-align:center; line-height:1.4; opacity:0.8;">
