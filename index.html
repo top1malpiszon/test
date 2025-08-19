@@ -59,18 +59,18 @@
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            /* Stałe podświetlenie w kolorze krwistej czerwieni */
-            box-shadow: 0 0 0 4px #8B0000, 0 0 20px 8px rgba(139, 0, 0, 0.7);
+            /* Stałe podświetlenie w ciemniejszym, krwistym kolorze */
+            box-shadow: 0 0 0 4px #4d0000, 0 0 20px 8px rgba(77, 0, 0, 0.7);
             animation: glow-pulse 2.5s infinite;
         }
 
         /* Ustawienie stałego koloru w animacji */
         @keyframes glow-pulse {
             0%, 100% {
-                box-shadow: 0 0 0 4px #8B0000, 0 0 20px 8px rgba(139, 0, 0, 0.7);
+                box-shadow: 0 0 0 4px #4d0000, 0 0 20px 8px rgba(77, 0, 0, 0.7);
             }
             50% {
-                box-shadow: 0 0 0 4px #dc143c, 0 0 25px 12px rgba(220, 20, 60, 0.8);
+                box-shadow: 0 0 0 4px #8B0000, 0 0 25px 12px rgba(139, 0, 0, 0.8);
             }
         }
 
@@ -266,8 +266,8 @@
 
         <main class="links-container">
             <a href="https://csgo-skins.com/?ref=LUKI" target="_blank" class="link-button">
-                <!-- Dodano klasę do podświetlenia obrazka 18+ -->
-                <img src="images/tylko18x.png" alt="18+" class="age-restriction-image highlighted-18-plus">
+                <!-- Usunięto klasę do podświetlenia obrazka 18+ -->
+                <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
                 <div class="link-icon">
                     <img src="images/csgoskins.png" alt="CSGOSKINS icon">
                 </div>
@@ -279,7 +279,7 @@
             </a>
 
             <a href="https://pirateswap.com/pl?ref=luki" target="_blank" class="link-button">
-                <img src="images/tylko18x.png" alt="18+" class="age-restriction-image highlighted-18-plus">
+                <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
                 <div class="link-icon">
                     <img src="images/pirateswap.png" alt="PIRATESWAP icon">
                 </div>
