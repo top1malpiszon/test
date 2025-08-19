@@ -197,6 +197,20 @@
         height: auto;
         z-index: 2;
     }
+        /* Pasek ładowania */
+    .link-loading-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 4px;
+        background-color: #000080;
+        transition: width 0.8s ease-in-out;
+    }
+
+    .link-button:hover .link-loading-bar {
+        width: 100%;
+    }
     </style>
 </head>
 
