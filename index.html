@@ -2,292 +2,320 @@
 <html lang="pl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LukiSteve</title>
-    <link rel="shortcut icon" type="lukistR.png" href="images/lukistR.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LukiSteve</title>
+    <link rel="shortcut icon" type="lukistR.png" href="images/lukistR.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-        /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
-        body {
-            background-color: #000000;
-            background-image:
-                radial-gradient(circle at 100% 100%, transparent 10%, #160a0b 15%, #220000 20%, #3b0000 30%, transparent 45%),
-                radial-gradient(circle at 0% 0%, transparent 10%, #160a0b 15%, #220000 20%, #3b0000 30%, transparent 45%);
-            background-size: 200% 200%;
-            background-position: 50% 50%;
-            animation: ocean-waves 12s ease-in-out infinite alternate;
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+    <style>
+        /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
+        body {
+            background-color: #000000;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-        @keyframes ocean-waves {
-            from {
-                background-position: 0% 0%;
-            }
+        .page-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            margin: 0 auto; /* Wyśrodkowanie na stronie */
+        }
 
-            to {
-                background-position: 100% 100%;
-            }
-        }
+        .profile-avatar {
+            margin-top: 20px;
+        }
 
-        .page-container {
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            box-sizing: border-box;
-            text-align: center;
-        }
+        /* ZMIENIONY KOD DLA PULSUJĄCEJ RAMKI */
+        .avatar-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 0 4px #8A2BE2, 0 0 20px 8px rgba(138, 43, 226, 0.7);
+            animation: glow-pulse 2.5s infinite;
+        }
+        
+        @keyframes glow-pulse {
+            0% {
+                box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 0 4px #9198e5, 0 0 25px 12px rgba(145, 152, 229, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
+            }
+        }
 
-        .profile-avatar {
-            margin-top: 20px;
-        }
+        .profile-name {
+            margin-top: 10px;
+            font-size: 24px;
+            font-weight: 700;
+        }
 
-        /* ZMIENIONY KOD DLA PULSUJĄCEJ RAMKI */
-        .avatar-image {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        box-shadow: 0 0 0 4px #8A2BE2, 0 0 20px 8px rgba(138, 43, 226, 0.7);
-        animation: glow-pulse 2.5s infinite;
-        }
-        
-        @keyframes glow-pulse {
-        0% {
-        box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
-        }
-        50% {
-        box-shadow: 0 0 0 4px #9198e5, 0 0 25px 12px rgba(145, 152, 229, 0.8);
-        }
-        100% {
-        box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
-        }
-        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 20px;
+        }
 
-        .profile-name {
-            margin-top: 10px;
-            font-size: 24px;
-            font-weight: 700;
-        }
+        /* Styl dla wszystkich linków w "kafelkach" */
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #fff;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            position: relative;
+        }
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 20px;
-        }
+        .link-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: #8b0000;
+        }
 
-        /* Styl dla wszystkich linków w "kafelkach" */
-        .link-button {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            text-decoration: none;
-            color: #fff;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-            position: relative; /* DODANO DLA OBRAZKA 18+ */
-        }
+        .link-icon {
+            width: 48px;
+            height: 48px;
+            margin-right: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
 
-        .link-button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-color: #8b0000;
-        }
+        .link-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-        .link-icon {
-            width: 48px;
-            height: 48px;
-            margin-right: 15px;
-            border-radius: 8px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
+        .link-text {
+            text-align: left;
+            flex-grow: 1;
+        }
 
-        .link-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .link-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin: 0;
+        }
 
-        .link-text {
-            text-align: left;
-        }
+        .link-subtitle {
+            font-weight: 400;
+            font-size: 12px;
+            opacity: 0.8;
+            margin: 0;
+        }
 
-        .link-title {
-            font-weight: 700;
-            font-size: 16px;
-            margin: 0;
-        }
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 30px;
+        }
 
-        .link-subtitle {
-            font-weight: 400;
-            font-size: 12px;
-            opacity: 0.8;
-            margin: 0;
-        }
+        .link-image-container {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+        }
 
-        /* Styl dla linków w sekcji links-container */
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-top: 30px;
-        }
+        .link-image-container .link-button {
+            padding: 0;
+            display: block;
+        }
 
-        /* Dodatkowe style dla banerów */
-        .link-image-container {
-            position: relative;
-            border-radius: 6px;
-            overflow: hidden;
-        }
+        .link-image-banner {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
-        .link-image-container .link-button {
-            padding: 0;
-            display: block;
-        }
+        .link-title-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
 
-        .link-image-banner {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        .footer-logo {
+            margin-top: 40px;
+            opacity: 0.7;
+            font-size: 14px;
+        }
 
-        .link-title-overlay {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: white;
-            font-size: 20px;
-            font-weight: 700;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-        }
+        .footer-logo a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        .age-restriction-image {
+            position: absolute;
+            right: 5px;
+            top: 30px; 
+            width: 20px;
+            height: auto;
+            z-index: 2;
+        }
 
-        /* Stopka */
-        .footer-logo {
-            margin-top: 40px;
-            opacity: 0.7;
-            font-size: 14px;
-        }
+        /* STYL DLA NOWEGO NAGŁÓWKA Z ANIMACJĄ */
+        .finisher-header {
+            position: relative;
+            height: 300px; /* Wysokość nagłówka */
+            overflow: hidden; /* Ważne dla animacji */
+            margin-bottom: 20px;
+        }
 
-        .footer-logo a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-        }
-        
-        /* DODANO: Styl dla obrazka 18+ */
-        .age-restriction-image {
-            position: absolute;
-            right: 5px;
-            top: 25px; 
-            width: 20px;
-            height: auto;
-            z-index: 2;
-        }
-    </style>
+        .header-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div class="page-container">
-        <header class="profile-header">
-            <div class="profile-avatar">
-                <img src="images/avatar.png" alt="LukiSteve Avatar" class="avatar-image">
-            </div>
-            <h1 class="profile-name">LukiSteve</h1>
-            <div class="social-icons">
-                <a href="https://www.twitch.tv/lukisteve" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/twitch4.png" alt="Twitch Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Twitch</p>
-                        <p class="link-subtitle"></p>
-                    </div>
-                </a>
-                <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/instagram5.png" alt="Instagram Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Instagram</p>
-                        <p class="link-subtitle"></p>
-                    </div>
-                </a>
-                <a href="https://kick.com/lukisteve" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/kick.png" alt="Kick Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Kick</p>
-                        <p class="link-subtitle"></p>
-                    </div>
-                </a>
-            </div>
-        </header>
+    <div class="finisher-header">
+        <div class="header-content">
+            <div class="profile-avatar">
+                <img src="images/avatar.png" alt="LukiSteve Avatar" class="avatar-image">
+            </div>
+            <h1 class="profile-name">LukiSteve</h1>
+        </div>
+    </div>
 
-        <main class="links-container">
-            <a href="https://csgo-skins.com/?ref=LUKI" target="_blank" class="link-button">
-                <img src="images/tylko18.png" alt="18+" class="age-restriction-image">
-                <div class="link-icon">
-                    <img src="images/csgoskins.png" alt="CSGOSKINS icon">
-                </div>
-                <div class="link-text">
-                    <p class="link-title">CSGOSKINS - 2.10 I 10% WIĘCEJ DO DOŁADOWANIA</p>
-                    <p class="link-subtitle"></p>
-                </div>
-            </a>
-            
-            <a href="https://pirateswap.com/pl?ref=luki" target="_blank" class="link-button">
-                <img src="images/tylko18.png" alt="18+" class="age-restriction-image">
-                <div class="link-icon">
-                    <img src="images/pirateswap.png" alt="PIRATESWAP icon">
-                </div>
-                <div class="link-text">
-                    <p class="link-title">PIRATESWAP - BONUS 35% DO DEPOZYTU Z KODEM LUKI</p>
-                    <p class="link-subtitle"></p>
-                </div>
-            </a>
-            <a href="http://pl.weareholy.com/LukiSteve" target="_blank" class="link-button">
-                <div class="link-icon">
-                    <img src="images/holy2.png" alt="holy icon">
-                </div>
-                <div class="link-text">
-                    <p class="link-title">Z KODEM "LUKI" 10% ZNIŻKI NA ZAMÓWIENIE</p>
-                    <p class="link-subtitle"></p>
-                </div>
-            </a>
+    <div class="page-container">
+        <div class="social-icons">
+            <a href="https://www.twitch.tv/lukisteve" target="_blank" class="link-button">
+                <div class="link-icon">
+                    <img src="images/twitch4.png" alt="Twitch Logo">
+                </div>
+                <div class="link-text">
+                    <p class="link-title">Twitch</p>
+                    <p class="link-subtitle"></p>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="link-button">
+                <div class="link-icon">
+                    <img src="images/instagram5.png" alt="Instagram Logo">
+                </div>
+                <div class="link-text">
+                    <p class="link-title">Instagram</p>
+                    <p class="link-subtitle"></p>
+                </div>
+            </a>
+            <a href="https://kick.com/lukisteve" target="_blank" class="link-button">
+                <div class="link-icon">
+                    <img src="images/kick.png" alt="Kick Logo">
+                </div>
+                <div class="link-text">
+                    <p class="link-title">Kick</p>
+                    <p class="link-subtitle"></p>
+                </div>
+            </a>
+        </div>
 
-            <div class="link-image-container">
-                <a href="https://discord.gg/piraci" target="_blank" class="link-button">
-                    <img src="images/discord-banner.jpg" alt="Discord Piratów" class="link-image-banner">
-                    <p class="link-title-overlay">DISCORD PIRATÓW!</p>
-                </a>
-            </div>
-                </main>
+        <main class="links-container">
+            <a href="https://csgo-skins.com/?ref=LUKI" target="_blank" class="link-button">
+                <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
+                <div class="link-icon">
+                    <img src="images/csgoskins.png" alt="CSGOSKINS icon">
+                </div>
+                <div class="link-text">
+                    <p class="link-title">CSGOSKINS - 2.10 I 10% WIĘCEJ DO DOŁADOWANIA</p>
+                    <p class="link-subtitle"></p>
+                </div>
+            </a>
+            
+            <a href="https://pirateswap.com/pl?ref=luki" target="_blank" class="link-button">
+                <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
+                <div class="link-icon">
+                    <img src="images/pirateswap.png" alt="PIRATESWAP icon">
+                </div>
+                <div class="link-text">
+                    <p class="link-title">PIRATESWAP - BONUS 35% DO DEPOZYTU Z KODEM LUKI</p>
+                    <p class="link-subtitle"></p>
+                </div>
+            </a>
+            <a href="http://pl.weareholy.com/LukiSteve" target="_blank" class="link-button">
+                <div class="link-icon">
+                    <img src="images/holy2.png" alt="holy icon">
+                </div>
+                <div class="link-text">
+                    <p class="link-title">Z KODEM "LUKI" 10% ZNIŻKI NA ZAMÓWIENIE</p>
+                    <p class="link-subtitle"></p>
+                </div>
+            </a>
 
-        <!-- STOPKA Z OSTRZEŻENIEM -->
-        <footer style="margin-top:40px; font-size:11px; color:#aaa; text-align:center; line-height:1.4; opacity:0.8;">
-            <strong>⚠️ GRAJ ODPOWIEDZIALNIE — NIE UZALEŻNIAJ SIĘ!</strong><br>
-            Graj odpowiedzialnie. Ta strona zawiera linki do zewnętrznych serwisów. 
-            Korzystanie z nich odbywa się na własną odpowiedzialność i powinno być zgodne 
-            z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych 
-            i nie ponosimy odpowiedzialności za skutki korzystania z tych serwisów.
-        </footer>
-    </div> <!-- zamyka page-container -->
+            <div class="link-image-container">
+                <a href="https://discord.gg/piraci" target="_blank" class="link-button">
+                    <img src="images/discord-banner.jpg" alt="Discord Piratów" class="link-image-banner">
+                    <p class="link-title-overlay">DISCORD PIRATÓW!</p>
+                </a>
+            </div>
+                </main>
+
+                <footer style="margin-top:40px; font-size:11px; color:#aaa; text-align:center; line-height:1.4; opacity:0.8;">
+            <strong>⚠️ GRAJ ODPOWIEDZIALNIE! ⚠️</strong><br>
+            Ta strona zawiera linki do zewnętrznych serwisów.
+            Korzystanie z nich odbywa się na własną odpowiedzialność i powinno być zgodne
+            z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych
+            i nie ponosimy odpowiedzialności za skutki korzystania z tych serwisów.
+        </footer>
+    </div> <script src="https://cdn.jsdelivr.net/npm/finisher-header/dist/finisher-header.es5.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        new FinisherHeader({
+            "count": 100,
+            "size": {
+                "min": 2,
+                "max": 8,
+                "pulse": 0
+            },
+            "speed": {
+                "x": { "min": 0, "max": 0.4 },
+                "y": { "min": 0, "max": 0.6 }
+            },
+            "colors": {
+                "background": "#000000",
+                "particles": [
+                    "#ff0000",
+                    "#00bdd1",
+                    "#ff0000"
+                ]
+            },
+            "blending": "overlay",
+            "opacity": {
+                "center": 1,
+                "edge": 0
+            },
+            "skew": -2,
+            "shapes": [ "c" ]
+        });
+    </script>
+
 </body>
 </html>
