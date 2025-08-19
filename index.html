@@ -112,6 +112,31 @@
             object-fit: contain;
         }
         /* ------------------------------------------------ */
+        
+        /* ZAKTUALIZOWANE STYLE DLA IKON SPOŁECZNOŚCIOWYCH */
+        .social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px; /* Zmienione na kwadratowe z zaokrąglonymi rogami */
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(45deg, #e66465, #9198e5); /* Dodany gradient na hover */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            transform: scale(1.1) rotate(5deg); /* Dodany obrót */
+        }
+        
+        .social-link img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+        /* ------------------------------------------------ */
 
         /* Styl dla wszystkich linków w "kafelkach" */
         .link-button {
@@ -131,7 +156,7 @@
 
     .link-button:hover {
         background-color: rgba(255, 255, 255, 0.2);
-        border-color: #8b0000;
+        border-color: #ff002b;
     }
 
     .link-icon {
@@ -229,7 +254,7 @@
         left: 0;
         width: 0;
         height: 4px;
-        background-color: #8b0000;
+        background-color: #ff002b;
         transition: width 0.8s ease-in-out;
     }
 
@@ -247,7 +272,6 @@
                 <img src="images/avatar.png" alt="LukiSteve Avatar" class="avatar-image">
             </div>
             <h1 class="profile-name">LukiSteve</h1>
-            <!-- --- ZMIENIONY BLOK HTML DLA IKON SPOŁECZNOŚCIOWYCH --- -->
             <div class="social-icons">
                 <a href="https://www.twitch.tv/lukisteve" target="_blank" class="social-link">
                     <img src="images/twitch4.png" alt="Twitch Logo">
@@ -259,7 +283,6 @@
                     <img src="images/kick.png" alt="Kick Logo">
                 </a>
             </div>
-            <!-- ------------------------------------------------------ -->
         </header>
 
         <main class="links-container">
