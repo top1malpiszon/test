@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LukiSteve</title>
+    <!-- UWAGA: Ten plik, "lukistR.png", nie jest dostępny w tym środowisku, dlatego ikona może się nie wyświetlić. -->
     <link rel="shortcut icon" type="lukistR.png" href="images/lukistR.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
+        /* CSS DLA TŁA */
         body {
             background-color: #000000;
             background-image:
@@ -53,24 +53,26 @@
             margin-top: 20px;
         }
 
-        /* ZMIENIONY KOD DLA PULSUJĄCEJ RAMKI */
+        /* KOD DLA PULSUJĄCEJ RAMKI AVATARA */
         .avatar-image {
             width: 120px;
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            /* Stałe podświetlenie w ciemniejszym, krwistym kolorze */
-            box-shadow: 0 0 0 4px #4d0000, 0 0 20px 8px rgba(77, 0, 0, 0.7);
-            animation: glow-pulse 2.5s infinite;
+            animation: glow-pulse-avatar 2.5s infinite;
         }
 
-        /* Ustawienie stałego koloru w animacji */
-        @keyframes glow-pulse {
-            0%, 100% {
-                box-shadow: 0 0 0 4px #4d0000, 0 0 20px 8px rgba(77, 0, 0, 0.7);
+        @keyframes glow-pulse-avatar {
+            0% {
+                box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
             }
+
             50% {
-                box-shadow: 0 0 0 4px #8B0000, 0 0 25px 12px rgba(139, 0, 0, 0.8);
+                box-shadow: 0 0 0 4px #9198e5, 0 0 25px 12px rgba(145, 152, 229, 0.8);
+            }
+
+            100% {
+                box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
             }
         }
 
@@ -87,7 +89,7 @@
             margin-top: 20px;
         }
 
-        /* ZMIENIONE STYLE DLA WSZYSTKICH LINKÓW/KAFELKÓW, ABY PASOWAŁY DO TŁA */
+        /* STYLE DLA WSZYSTKICH LINKÓW */
         .link-button {
             display: flex;
             align-items: center;
@@ -99,17 +101,32 @@
             border-radius: 12px;
             text-decoration: none;
             color: #fff;
-            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Dodano box-shadow do transition */
+            transition: background-color 0.3s ease, border-color 0.3s ease;
             position: relative;
             overflow: hidden;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .link-button:hover {
             background-color: rgba(59, 0, 0, 0.8);
-            /* Czerwień po najechaniu myszką */
             border-color: #ff4d4d;
-            /* Czerwień na krawędzi */
-            box-shadow: 0 0 20px rgba(255, 77, 77, 0.5); /* Poświata po najechaniu */
+            animation: glow-pulse-link 2.5s infinite;
+        }
+
+        /* Nowa animacja dla kafelków po najechaniu */
+        @keyframes glow-pulse-link {
+            0% {
+                box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 0 4px #9198e5, 0 0 25px 12px rgba(145, 152, 229, 0.8);
+            }
+
+            100% {
+                box-shadow: 0 0 0 4px #e66465, 0 0 20px 8px rgba(230, 100, 101, 0.5);
+            }
         }
 
         .link-icon {
@@ -200,11 +217,6 @@
             z-index: 2;
         }
 
-        /* Nowa klasa dla podświetlenia obrazka 18+ BEZ RAMKI */
-        .highlighted-18-plus {
-            box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.7); /* Czerwona poświata bez ramki */
-        }
-
         /* Pasek ładowania */
         .link-loading-bar {
             position: absolute;
@@ -219,6 +231,16 @@
         .link-button:hover .link-loading-bar {
             width: 100%;
         }
+
+        /* Dopasowanie do urządzeń mobilnych */
+        @media (max-width: 600px) {
+            .social-icons {
+                flex-direction: column;
+            }
+            .link-button {
+                justify-content: flex-start;
+            }
+        }
     </style>
 </head>
 
@@ -227,11 +249,13 @@
     <div class="page-container">
         <header class="profile-header">
             <div class="profile-avatar">
+                <!-- UWAGA: Ten plik, "avatar.png", nie jest dostępny w tym środowisku, dlatego obraz może się nie wyświetlić. -->
                 <img src="images/avatar.png" alt="LukiSteve Avatar" class="avatar-image">
             </div>
             <h1 class="profile-name">LukiSteve</h1>
             <div class="social-icons">
                 <a href="https://www.twitch.tv/lukisteve" target="_blank" class="link-button">
+                    <!-- UWAGA: Ten plik, "twitch4.png", nie jest dostępny w tym środowisku. -->
                     <div class="link-icon">
                         <img src="images/twitch4.png" alt="Twitch Logo">
                     </div>
@@ -242,6 +266,7 @@
                     <div class="link-loading-bar"></div>
                 </a>
                 <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="link-button">
+                    <!-- UWAGA: Ten plik, "instagram5.png", nie jest dostępny w tym środowisku. -->
                     <div class="link-icon">
                         <img src="images/instagram5.png" alt="Instagram Logo">
                     </div>
@@ -252,6 +277,7 @@
                     <div class="link-loading-bar"></div>
                 </a>
                 <a href="https://kick.com/lukisteve" target="_blank" class="link-button">
+                    <!-- UWAGA: Ten plik, "kick.png", nie jest dostępny w tym środowisku. -->
                     <div class="link-icon">
                         <img src="images/kick.png" alt="Kick Logo">
                     </div>
@@ -266,8 +292,9 @@
 
         <main class="links-container">
             <a href="https://csgo-skins.com/?ref=LUKI" target="_blank" class="link-button">
-                <!-- Usunięto klasę do podświetlenia obrazka 18+ -->
+                <!-- UWAGA: Ten plik, "tylko18x.png", nie jest dostępny w tym środowisku. -->
                 <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
+                <!-- UWAGA: Ten plik, "csgoskins.png", nie jest dostępny w tym środowisku. -->
                 <div class="link-icon">
                     <img src="images/csgoskins.png" alt="CSGOSKINS icon">
                 </div>
@@ -279,7 +306,9 @@
             </a>
 
             <a href="https://pirateswap.com/pl?ref=luki" target="_blank" class="link-button">
+                <!-- UWAGA: Ten plik, "tylko18x.png", nie jest dostępny w tym środowisku. -->
                 <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
+                <!-- UWAGA: Ten plik, "pirateswap.png", nie jest dostępny w tym środowisku. -->
                 <div class="link-icon">
                     <img src="images/pirateswap.png" alt="PIRATESWAP icon">
                 </div>
@@ -290,6 +319,7 @@
                 <div class="link-loading-bar"></div>
             </a>
             <a href="http://pl.weareholy.com/LukiSteve" target="_blank" class="link-button">
+                <!-- UWAGA: Ten plik, "holy2.png", nie jest dostępny w tym środowisku. -->
                 <div class="link-icon">
                     <img src="images/holy2.png" alt="holy icon">
                 </div>
@@ -302,6 +332,7 @@
 
             <div class="link-image-container">
                 <a href="https://discord.gg/piraci" target="_blank" class="link-button">
+                    <!-- UWAGA: Ten plik, "discord-banner.jpg", nie jest dostępny w tym środowisku. -->
                     <img src="images/discord-banner.jpg" alt="Discord Piratów" class="link-image-banner">
                     <p class="link-title-overlay">DISCORD PIRATÓW!</p>
                 </a>
@@ -318,5 +349,4 @@
         </footer>
     </div> <!-- zamyka page-container -->
 </body>
-
 </html>
