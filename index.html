@@ -28,6 +28,13 @@
             flex-direction: column;
             min-height: 100vh;
         }
+        
+        /* Reguła dla mniejszych ekranów (telefony), która wypełnia całe tło kosztem przycięcia obrazu */
+        @media (max-width: 600px) {
+            body {
+                background-size: cover;
+            }
+        }
 
         @keyframes ocean-waves {
             from {
