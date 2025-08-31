@@ -5,24 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LukiSteve</title>
-    <link rel="shortcut icon" type="lukistR.png" href="images/lukistR.png">
-
+    <link rel="shortcut icon" type="image/png" href="images/lukistR.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-
     <style>
-        /* TUTAJ JEST KOD CSS ODPOWIEDZIALNY ZA TŁO */
         body {
             background-color: #000000;
-            background-image:
-                /* Zmienione kolory tła na odcienie zieleni */
-                radial-gradient(circle at 100% 100%, transparent 10%, #0b160a 15%, #002200 20%, #003b00 30%, transparent 45%),
-                radial-gradient(circle at 0% 0%, transparent 10%, #0b160a 15%, #002200 20%, #003b00 30%, transparent 45%);
-            background-size: 200% 200%;
-            background-position: 50% 50%;
-            animation: ocean-waves 12s ease-in-out infinite alternate;
-            color: #fff;
+            color: #ffffff;
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
@@ -30,20 +20,32 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            /* Ustawia pozycjonowanie na relative, aby jabłka mogły się do niego odnosić */
-            position: relative; 
-            overflow: hidden; /* Zapobiega pojawianiu się paska przewijania, gdy jabłka wchodzą w widok */
+            position: relative;
         }
 
-        @keyframes ocean-waves {
-            from {
-                background-position: 0% 0%;
-            }
-
-            to {
-                background-position: 100% 100%;
-            }
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            filter: blur(5px);
+            /* Dodano efekt rozmycia, aby tekst był bardziej czytelny */
         }
+
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Ciemna nakładka, aby tekst był lepiej widoczny */
+            z-index: -1;
+        }
+
 
         .page-container {
             width: 100%;
@@ -51,38 +53,38 @@
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
-            /* Zwiększ z-index, aby zawartość była nad jabłkami */
-            z-index: 2; 
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Dodano przezroczyste tło, aby tekst był bardziej czytelny */
+            border-radius: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .profile-avatar {
             margin-top: 20px;
         }
 
-        /* ZMIENIONY KOD DLA PULSUJĄCEJ RAMKI NA ZIELONY */
         .avatar-image {
             width: 120px;
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 0 0 4px #8A2BE2, 0 0 20px 8px rgba(138, 43, 226, 0.7);
-            animation: glow-pulse 2.5s infinite;
+            box-shadow: 0 0 0 4px #C00000, 0 0 20px 8px rgba(192, 0, 0, 0.7);
+            animation: glow-pulse 5s infinite;
         }
 
         @keyframes glow-pulse {
             0% {
-                /* Zmienione kolory na zielone */
-                box-shadow: 0 0 0 4px #66e664, 0 0 20px 8px rgba(100, 230, 101, 0.5);
+                box-shadow: 0 0 0 4px #C00000, 0 0 20px 8px rgba(192, 0, 0, 0.5);
             }
 
             50% {
-                /* Zmienione kolory na zielone */
-                box-shadow: 0 0 0 4px #9198e5, 0 0 25px 12px rgba(145, 152, 229, 0.8);
+                box-shadow: 0 0 0 4px #00BFFF, 0 0 25px 12px rgba(0, 191, 255, 0.8);
             }
 
             100% {
-                /* Zmienione kolory na zielone */
-                box-shadow: 0 0 0 4px #66e664, 0 0 20px 8px rgba(100, 230, 101, 0.5);
+                box-shadow: 0 0 0 4px #C00000, 0 0 20px 8px rgba(192, 0, 0, 0.5);
             }
         }
 
@@ -90,49 +92,117 @@
             margin-top: 10px;
             font-size: 24px;
             font-weight: 700;
+            margin-bottom: 0;
+            color: #ffffff;
+        }
+
+        .profile-contact {
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-text {
+            margin-right: 5px;
+            color: #cccccc;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
         }
 
         .social-icons {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             gap: 16px;
             margin-top: 20px;
         }
 
-        /* ZMIENIONE STYLE DLA WSZYSTKICH LINKÓW/KAFELKÓW, ABY PASOWAŁY DO TŁA */
+        .social-icons-row {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: nowrap;
+        }
+
         .link-button {
             display: flex;
             align-items: center;
             justify-content: flex-start;
             padding: 15px;
-            background-color: rgba(16, 10, 11, 0.5);
-            /* Ciemniejsze tło */
+            background-color: rgba(0, 12, 25, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             text-decoration: none;
-            color: #fff;
+            color: #ffffff;
             transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
+            flex-shrink: 0;
+            min-width: 120px;
         }
 
-        /* ZIELONY EFEKT PO NAJECHANIU MYSZKĄ */
         .link-button:hover {
-            background-color: #003b00;
-            /* Ciemniejsza baza */
-            border-color: #008B00;
-            /* Krwista zieleń na krawędzi */
-            box-shadow: 0 0 0 4px #005e00, 0 0 25px 12px rgba(0, 139, 0, 0.7);
-            /* Głęboki, krwisty zielony cień */
+            background-color: #0A0A1A;
+            border-color: #C00000;
+            box-shadow: 0 0 25px 8px rgba(192, 0, 0, 0.7);
         }
 
-        .link-icon {
+        .link-button .link-icon {
             width: 48px;
             height: 48px;
             margin-right: 15px;
             border-radius: 8px;
             overflow: hidden;
             flex-shrink: 0;
+        }
+
+        .link-button .link-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .link-button .link-subtitle {
+            font-weight: 400;
+            font-size: 12px;
+            opacity: 0.8;
+            margin: 0;
+            color: #d1d1d1;
+        }
+
+        .link-subtitle.red-code-text {
+            color: #C00000;
+            opacity: 0.8;
+            font-weight: 700;
+        }
+
+
+        .social-icons .link-button {
+            padding: 10px;
+            flex-shrink: 0;
+        }
+
+        .social-icons .link-icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+        }
+
+        .social-icons .link-title {
+            font-size: 14px;
+        }
+
+        .social-icons .link-subtitle {
+            font-size: 10px;
         }
 
         .link-icon img {
@@ -146,24 +216,17 @@
             flex-grow: 1;
         }
 
-        .link-title {
-            font-weight: 700;
-            font-size: 16px;
-            margin: 0;
-        }
-
-        .link-subtitle {
-            font-weight: 400;
-            font-size: 12px;
-            opacity: 0.8;
-            margin: 0;
-        }
-
         .links-container {
             display: flex;
             flex-direction: column;
             gap: 16px;
             margin-top: 30px;
+        }
+
+        .subtitle-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .link-image-container {
@@ -187,7 +250,7 @@
             position: absolute;
             bottom: 20px;
             left: 20px;
-            color: white;
+            color: #FFDAB9;
             font-size: 20px;
             font-weight: 700;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
@@ -197,15 +260,15 @@
             margin-top: 40px;
             opacity: 0.7;
             font-size: 14px;
+            color: #d1d1d1;
         }
 
         .footer-logo a {
-            color: #fff;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 700;
         }
 
-        /* Styl dla ikony ograniczenia wiekowego (18+) */
         .age-restriction-image {
             position: absolute;
             right: 5px;
@@ -215,7 +278,6 @@
             z-index: 2;
         }
 
-        /* Zmieniony styl dla ikony Holy Energy / strzałki - ukryta domyślnie */
         .holy-icon {
             position: absolute;
             right: 10px;
@@ -224,25 +286,24 @@
             height: 20px;
             z-index: 2;
             opacity: 0;
-            /* Domyślnie ukryta */
             transition: opacity 0.3s ease-in-out;
-            /* Płynne pojawianie się */
         }
 
-        /* Ikona pojawia się po najechaniu myszką na kafelek */
+        .social-icons .holy-icon {
+            top: 15px;
+        }
+
         .link-button:hover .holy-icon {
             opacity: 1;
-            /* Staje się widoczna */
         }
 
-        /* Pasek ładowania - zmieniony na zielony */
         .link-loading-bar {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 0;
             height: 4px;
-            background-color: #00a800;
+            background-color: #ff4500;
             transition: width 0.8s ease-in-out;
         }
 
@@ -250,7 +311,56 @@
             width: 100%;
         }
 
-        /* Media queries dla lepszego wyglądu na telefonach */
+        .copy-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d1d1d1;
+            transition: color 0.3s ease;
+        }
+
+        .copy-button:hover {
+            color: #ffffff;
+        }
+
+        #copy-message-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .copy-message {
+            background-color: rgba(192, 0, 0, 0.7);
+            color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+
+        .copy-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-separator {
+            width: 80%;
+            height: 2px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), #cc0000, rgba(255, 255, 255, 0.1));
+            margin: 40px auto;
+            border-radius: 1px;
+            opacity: 0.6;
+        }
+
         @media (max-width: 600px) {
             .social-icons {
                 flex-direction: column;
@@ -261,95 +371,117 @@
                 justify-content: flex-start;
             }
         }
-        
-        /* Klasa dla pojedynczego jabłka */
-        .falling-apple {
-            position: absolute;
-            top: -50px;
-            font-size: 30px;
-            pointer-events: none;
-            z-index: 1; /* Upewnia się, że jabłka są pod główną zawartością */
-            animation: fall linear infinite;
-        }
-
-        /* Animacja spadania */
-        @keyframes fall {
-            to {
-                transform: translateY(120vh);
-            }
-        }
     </style>
 </head>
 
 <body>
-
+    <img src="brookies.png" alt="Tło strony" class="background-image">
+    <div class="background-overlay"></div>
     <div class="page-container">
         <header class="profile-header">
             <div class="profile-avatar">
                 <img src="images/avatar.png" alt="LukiSteve Avatar" class="avatar-image">
             </div>
             <h1 class="profile-name">LukiSteve</h1>
+            <p class="profile-contact">
+                <span class="contact-text">Kontakt: lukisteve@stormmedia.gg</span>
+                <img src="images/lukistbusines.png" alt="Biznesowy avatar" class="contact-icon">
+            </p>
             <div class="social-icons">
-                <a href="https://www.twitch.tv/lukisteve" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/twitch4.png" alt="Twitch Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Twitch</p>
-                        <p class="link-subtitle"></p>
-                    </div>
-                    <div class="link-loading-bar"></div>
-                </a>
-                <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/instagram5.png" alt="Instagram Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Instagram</p>
-                        <p class="link-subtitle"></p>
-                    </div>
-                    <div class="link-loading-bar"></div>
-                </a>
-                <a href="https://kick.com/lukisteve" target="_blank" class="link-button">
-                    <div class="link-icon">
-                        <img src="images/kick.png" alt="Kick Logo">
-                    </div>
-                    <div class="link-text">
-                        <p class="link-title">Kick</p>
-                        <p class="link-subtitle"></p>
-                    </div>
-                    <div class="link-loading-bar"></div>
-                </a>
+                <div class="social-icons-row">
+                    <a href="https://www.twitch.tv/lukisteve" target="_blank" class="link-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="holy-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" x2="21" y1="14" y2="3" />
+                        </svg>
+                        <div class="link-icon">
+                            <img src="images/twitch4.png" alt="Twitch Logo">
+                        </div>
+                        <div class="link-text">
+                            <p class="link-title">Twitch</p>
+                            <p class="link-subtitle"></p>
+                        </div>
+                        <div class="link-loading-bar"></div>
+                    </a>
+                    <a href="https://www.instagram.com/lukisteve_/" target="_blank" class="link-button">
+                        <div class="link-icon">
+                            <img src="images/instagram5.png" alt="Instagram Logo">
+                        </div>
+                        <div class="link-text">
+                            <p class="link-title">Instagram</p>
+                            <p class="link-subtitle"></p>
+                        </div>
+                        <div class="link-loading-bar"></div>
+                    </a>
+                    <a href="https://kick.com/lukisteve" target="_blank" class="link-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="holy-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" x2="21" y1="14" y2="3" />
+                        </svg>
+                        <div class="link-icon">
+                            <img src="images/kick.png" alt="Kick Logo">
+                        </div>
+                        <div class="link-text">
+                            <p class="link-title">Kick</p>
+                            <p class="link-subtitle"></p>
+                        </div>
+                        <div class="link-loading-bar"></div>
+                    </a>
+                </div>
             </div>
         </header>
-
+        <div class="section-separator"></div>
         <main class="links-container">
             <a href="https://csgo-skins.com/?ref=LUKI" target="_blank" class="link-button">
                 <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
                 <div class="link-icon">
-                    <img src="images/csgoskins.png" alt="CSGOSKINS icon">
+                    <img src="images/csgoskins.png" alt="cs icon">
                 </div>
                 <div class="link-text">
                     <p class="link-title">CSGOSKINS - 2.10 I 10% WIĘCEJ DO DOŁADOWANIA</p>
-                    <p class="link-subtitle">Kod: LUKI</p>
+                    <div class="subtitle-container">
+                        <p class="link-subtitle red-code-text">Kod: LUKI</p>
+                        <button class="copy-button" data-code="LUKI">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
-
             <a href="https://pirateswap.com/pl?ref=luki" target="_blank" class="link-button">
                 <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
                 <div class="link-icon">
                     <img src="images/pirateswap.png" alt="PIRATESWAP icon">
                 </div>
                 <div class="link-text">
-                    <p class="link-title">PIRATESWAP - BONUS 35% DO DEPOZYTU Z KODEM LUKI</p>
-                    <p class="link-subtitle">Kod: LUKI</p>
+                    <p class="link-title">PIRATESWAP - BONUS 35% DO DEPOZYTU</p>
+                    <div class="subtitle-container">
+                        <p class="link-subtitle red-code-text">Kod: LUKI</p>
+                        <button class="copy-button" data-code="LUKI">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
             <a href="http://pl.weareholy.com/LukiSteve" target="_blank" class="link-button">
-                <!-- Bezpośrednio wklejony kod SVG -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="holy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="holy-icon">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                     <polyline points="15 3 21 3 21 9" />
                     <line x1="10" x2="21" y1="14" y2="3" />
@@ -359,19 +491,55 @@
                 </div>
                 <div class="link-text">
                     <p class="link-title">HOLY ENERGY - 10% ZNIŻKI NA ZAMÓWIENIE</p>
-                    <p class="link-subtitle">Kod: LUKI</p>
+                    <div class="subtitle-container">
+                        <p class="link-subtitle red-code-text">Kod: LUKI</p>
+                        <button class="copy-button" data-code="LUKI">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
-            <a href="https://discord.gg/piraci" target="_blank" class="link-button">
-                <!-- Ikona strzałki dodana tutaj -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="holy-icon">
+            <a href="https://sfgame.net/" target="_blank" class="link-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="holy-icon">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                     <polyline points="15 3 21 3 21 9" />
                     <line x1="10" x2="21" y1="14" y2="3" />
                 </svg>
                 <div class="link-icon">
-                    <img src="images/lukistR2.png" alt="holy icon">
+                    <img src="images/sfgame2.png" alt="sf icon">
+                </div>
+                <div class="link-text">
+                    <p class="link-title">SHAKES & FIDGET - Rejestrujcie konta na EU22!</p>
+                    <div class="subtitle-container">
+                        <p class="link-subtitle red-code-text">Kod: Lukisteve-WQUG</p>
+                        <button class="copy-button" data-code="Lukisteve-WQUG">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="link-loading-bar"></div>
+            </a>
+            <a href="https://discord.gg/piraci" target="_blank" class="link-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="holy-icon">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" x2="21" y1="14" y2="3" />
+                </svg>
+                <div class="link-icon">
+                    <img src="images/lukistR2.png" alt="dc icon">
                 </div>
                 <div class="link-text">
                     <p class="link-title">DISCORD PIRATÓW!</p>
@@ -379,10 +547,10 @@
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
-
             <a href="https://streamelements.com/lukisteve/tip" target="_blank" class="link-button">
-                <!-- Ikona strzałki dodana tutaj -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="holy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="holy-icon">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                     <polyline points="15 3 21 3 21 9" />
                     <line x1="10" x2="21" y1="14" y2="3" />
@@ -392,46 +560,65 @@
                 </div>
                 <div class="link-text">
                     <p class="link-title">DONATE</p>
-                    <p class="link-subtitle"></p>
+                    <p class="link-subtitle red-code-text">Dotacje nie podlegają zwrotom!</p>
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
         </main>
-        <!-- STOPKA Z OSTRZEŻENIEM -->
         <footer style="margin-top:40px; font-size:11px; color:#aaa; text-align:center; line-height:1.4; opacity:0.8;">
-            <p><strong>⚠️ GRAJ ODPOWIEDZIALNIE! ⚠️</strong><br>
-            Ta strona zawiera linki do zewnętrznych serwisów.
-            Korzystanie z nich odbywa się na własną odpowiedzialność i powinno być zgodne
-            z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych
-            i nie ponosimy odpowiedzialności za skutki korzystania z tych serwisów.</p>
+            <strong>⚠️ GRAJ ODPOWIEDZIALNIE! ⚠️</strong><br>
+            Strona zawiera linki do zewnętrznych serwisów. Korzystanie z nich odbywa się na własną odpowiedzialność i powinno być zgodne z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych i nie zachęcamy do działań niezgodnych z prawem i nie ponosimy odpowiedzialności za konsekwencje wynikające z korzystania z tych stron.
+            <br>
+            <span style="opacity: 0.5; display: block; margin-top: 5px;">© 2025 Made by top1malpiszon. Wszelkie prawa zastrzeżone.</span>
         </footer>
-    </div> <!-- zamyka page-container -->
-    
-    <!-- PONIŻEJ ZAMYKAMY TAG </body> -->
-    <!-- TUTAJ NALEŻY Wkleić KOD ANIMACJI JABŁEK -->
+    </div>
+    <div id="copy-message-container"></div>
     <script>
-        const numberOfApples = 30;
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
 
-        function createApple() {
-            const apple = document.createElement('div');
-            apple.classList.add('falling-apple');
-            apple.textContent = '🍏';
-            document.body.appendChild(apple);
-
-            const randomLeft = Math.random() * 100;
-            const randomDuration = Math.random() * 5 + 5;
-            const randomDelay = Math.random() * 10;
-            
-            apple.style.left = `${randomLeft}vw`;
-            apple.style.animationDuration = `${randomDuration}s`;
-            apple.style.animationDelay = `${randomDelay}s`;
-        }
-
-        window.onload = function() {
-            for (let i = 0; i < numberOfApples; i++) {
-                createApple();
+        document.addEventListener('DOMContentLoaded', () => {
+            function copyTextToClipboard(text) {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                } catch (err) {
+                    console.error('Błąd podczas kopiowania tekstu: ', err);
+                }
+                document.body.removeChild(textArea);
             }
-        };
+
+            function displayCopyMessage(messageText) {
+                const container = document.getElementById('copy-message-container');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'copy-message';
+                messageDiv.textContent = messageText;
+                container.appendChild(messageDiv);
+                setTimeout(() => {
+                    messageDiv.classList.add('show');
+                }, 10);
+                setTimeout(() => {
+                    messageDiv.classList.remove('show');
+                    setTimeout(() => {
+                        container.removeChild(messageDiv);
+                    }, 300);
+                }, 1500);
+            }
+
+            document.querySelectorAll('.copy-button').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const code = event.currentTarget.getAttribute('data-code');
+                    copyTextToClipboard(code);
+                    displayCopyMessage('Kod został skopiowany!');
+                });
+            });
+        });
     </script>
 </body>
 
