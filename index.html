@@ -11,20 +11,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-image: url('images/brookies.png'); /* Zmieniono 'tlo.jpg' na 'brookies.png' */
-            background-size: cover;
+            background-image: url('images/brookies.png');
+            background-size: contain; /* Zmieniono na "contain", aby zdjęcie było w pełni widoczne */
             background-position: center center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-color: #000000; /* Zapasowy kolor tła */
+            background-color: #000000;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
             margin: 0;
-            padding: 50px 0; /* Dodano padding pionowy, aby oddalić treść od krawędzi */
+            padding: 50px 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column; /* Ustawiono kolumnę, aby lepiej kontrolować odstępy */
+            flex-direction: column;
             min-height: 100vh;
         }
 
