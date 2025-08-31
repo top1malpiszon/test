@@ -11,13 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            /* Nowa właściwość background-size: contain, która sprawia, że całe zdjęcie jest widoczne */
-            background-image: url('images/brookies3.png');
-            background-size: contain;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
             background-color: #000000;
+            background-image:
+                radial-gradient(circle at 100% 100%, transparent 10%, #360000 15%, #360000 20%, #360000 30%, transparent 45%),
+                radial-gradient(circle at 0% 0%, transparent 10%, #360000 15%, #360000 20%, #360000 30%, transparent 45%);
+            background-size: 200% 200%;
+            background-position: 50% 50%;
+            animation: ocean-waves 12s ease-in-out infinite alternate;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -25,15 +25,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             min-height: 100vh;
-        }
-        
-        /* Reguła dla mniejszych ekranów (telefony), która wypełnia całe tło kosztem przycięcia obrazu */
-        @media (max-width: 600px) {
-            body {
-                background-size: cover;
-            }
         }
 
         @keyframes ocean-waves {
@@ -53,6 +45,8 @@
             box-sizing: border-box;
             text-align: center;
             margin: 0 auto;
+            position: relative;
+            /* Dodano, aby umożliwić pozycjonowanie obrazka w prawym górnym rogu */
         }
 
         .profile-avatar {
@@ -365,11 +359,21 @@
                 justify-content: flex-start;
             }
         }
+
+        .brokies-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 120px;
+            height: auto;
+            z-index: 10;
+        }
     </style>
 </head>
 
 <body>
     <div class="page-container">
+        <img src="napisbrokies.png" alt="Brokies Logo" class="brokies-logo">
         <header class="profile-header">
             <div class="profile-avatar">
                 <img src="images/avatar.png" alt="LukiSteve Avatar" class="avatar-image">
@@ -496,6 +500,32 @@
                 </div>
                 <div class="link-loading-bar"></div>
             </a>
+            <a href="https://sfgame.net/" target="_blank" class="link-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="holy-icon">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" x2="21" y1="14" y2="3" />
+                </svg>
+                <div class="link-icon">
+                    <img src="images/sfgame2.png" alt="sf icon">
+                </div>
+                <div class="link-text">
+                    <p class="link-title">SHAKES & FIDGET - Rejestrujcie konta na EU22!</p>
+                    <div class="subtitle-container">
+                        <p class="link-subtitle red-code-text">Kod: Lukisteve-WQUG</p>
+                        <button class="copy-button" data-code="Lukisteve-WQUG">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="link-loading-bar"></div>
+            </a>
             <a href="https://discord.gg/piraci" target="_blank" class="link-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -533,10 +563,7 @@
         </main>
         <footer style="margin-top:40px; font-size:11px; color:#aaa; text-align:center; line-height:1.4; opacity:0.8;">
             <strong>⚠️ GRAJ ODPOWIEDZIALNIE! ⚠️</strong><br>
-            Ta strona zawiera linki do zewnętrznych serwisów.
-            Korzystanie z nich odbywa się na własną odpowiedzialność i powinno być zgodne
-            z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych
-            i nie ponosimy odpowiedzialności za skutki korzystania z tych serwisów.
+            Strona zawiera linki do zewnętrznych serwisów. Korzystanie z nich odbywa się na własną odpowiedzialność i powinno być zgodne z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych i nie zachęcamy do działań niezgodnych z prawem i nie ponosimy odpowiedzialności za konsekwencje wynikające z korzystania z tych stron.
             <br>
             <span style="opacity: 0.5; display: block; margin-top: 5px;">© 2025 Made by top1malpiszon. Wszelkie prawa zastrzeżone.</span>
         </footer>
