@@ -40,16 +40,23 @@
 
         .page-container {
             width: 100%;
-            max-width: 600px;
+            max-width: 1150px;
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
             margin: 0 auto;
+        }
+
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             position: relative;
+            padding-top: 50px;
         }
 
         .profile-avatar {
-            margin-top: 20px;
+            margin-top: 0;
         }
 
         .avatar-image {
@@ -104,6 +111,70 @@
             vertical-align: middle;
         }
 
+        .streams-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+            gap: 50px;
+            margin: 30px auto;
+        }
+
+        .stream-container {
+            flex: 1 1 45%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            box-shadow: 0 0 25px 8px rgba(255, 102, 0, 0.7);
+        }
+
+        .stream-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        .stream-title {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .stream-link-button {
+            padding: 6px 12px;
+            border-radius: 8px;
+            background-color: #ff6600;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .stream-link-button:hover {
+            background-color: #ff8533;
+            transform: translateY(-2px);
+        }
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         .social-icons {
             display: flex;
             flex-direction: column;
@@ -119,12 +190,20 @@
             flex-wrap: nowrap;
         }
 
+        .social-icons .link-button {
+            padding: 8px;
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 150px;
+            margin: 0 auto;
+        }
+
         .link-button {
             display: flex;
             align-items: center;
             justify-content: flex-start;
             padding: 15px;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 12, 25, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             text-decoration: none;
@@ -133,13 +212,15 @@
             position: relative;
             overflow: hidden;
             flex-shrink: 0;
-            min-width: 120px;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         .link-button:hover {
             background-color: #0A0A1A;
             border-color: #ff6600;
-            box-shadow: 0 0 25px 8px rgba(255, 102, 0, 0.9);
+            box-shadow: 0 0 25px 8px rgba(255, 102, 0, 0.7);
         }
 
         .link-button .link-icon {
@@ -168,14 +249,8 @@
 
         .link-subtitle.red-code-text {
             color: #ff6600;
-            opacity: 1;
+            opacity: 0.8;
             font-weight: 700;
-        }
-
-
-        .social-icons .link-button {
-            padding: 10px;
-            flex-shrink: 0;
         }
 
         .social-icons .link-icon {
@@ -208,6 +283,7 @@
             flex-direction: column;
             gap: 16px;
             margin-top: 30px;
+            align-items: center;
         }
 
         .subtitle-container {
@@ -323,7 +399,7 @@
         }
 
         .copy-message {
-            background-color: rgba(255, 102, 0, 0.9);
+            background-color: rgba(255, 102, 0, 0.7);
             color: #ffffff;
             padding: 10px 15px;
             border-radius: 8px;
@@ -348,6 +424,31 @@
             opacity: 0.6;
         }
 
+        .align-with-link {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .social-separator {
+            width: 100%;
+            max-width: 500px;
+            height: 2px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), #ff6600, rgba(255, 255, 255, 0.1));
+            margin: 40px auto;
+            border-radius: 1px;
+            opacity: 0.6;
+        }
+
+        .brokies-logo {
+            width: 150px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin-top: 10px;
+            margin-right: 20px;
+        }
+
         @media (max-width: 600px) {
             .social-icons {
                 flex-direction: column;
@@ -357,23 +458,29 @@
             .link-button {
                 justify-content: flex-start;
             }
-        }
+            .streams-container {
+                flex-direction: column;
+            }
 
-        .brokies-logo {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 120px;
-            height: auto;
-            z-index: 10;
+            .profile-header {
+                padding-top: 0;
+            }
+
+            .brokies-logo {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="page-container">
-        <img src="images/napisbrokies2.png" alt="Brokies Logo" class="brokies-logo">
         <header class="profile-header">
+            <img src="images/napisbrokies2.png" alt="Brokies Logo" class="brokies-logo">
             <div class="profile-avatar">
                 <img src="images/discokarol.png" alt="DiscoKarol Avatar" class="avatar-image">
             </div>
@@ -438,6 +545,13 @@
                         <div class="link-loading-bar"></div>
                     </a>
                     <a href="https://www.instagram.com/discokarol_/" target="_blank" class="link-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="holy-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" x2="21" y1="14" y2="3" />
+                        </svg>
                         <div class="link-icon">
                             <img src="images/instagram5.png" alt="Instagram Logo">
                         </div>
@@ -448,6 +562,13 @@
                         <div class="link-loading-bar"></div>
                     </a>
                     <a href="https://www.youtube.com/@DiscoKarol_/featured" target="_blank" class="link-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="holy-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" x2="21" y1="14" y2="3" />
+                        </svg>
                         <div class="link-icon">
                             <img src="images/yt4.png" alt="yt Logo">
                         </div>
@@ -460,7 +581,7 @@
                 </div>
             </div>
         </header>
-        <div class="section-separator"></div>
+        <div class="section-separator align-with-link"></div>
         <main class="links-container">
             <a href="https://casehug.com/r/DISCOKAROL" target="_blank" class="link-button">
                 <img src="images/tylko18x.png" alt="18+" class="age-restriction-image">
@@ -557,20 +678,58 @@
                 <div class="link-loading-bar"></div>
             </a>
         </main>
+        <div class="section-separator"></div>
+        <div class="streams-container">
+            <div class="stream-container">
+                <div class="stream-header">
+                    <h3 class="stream-title">Stream na Kick</h3>
+                    <a href="https://kick.com/discokarol" target="_blank" class="stream-link-button">DOŁĄCZ!</a>
+                </div>
+                <div class="iframe-container">
+                    <iframe id="kick-stream" src="" scrolling="no" allowfullscreen="true" width="100%"
+                        height="100%"></iframe>
+                </div>
+            </div>
+            <div class="stream-container">
+                <div class="stream-header">
+                    <h3 class="stream-title">Stream na Twitch</h3>
+                    <a href="https://www.twitch.tv/discokarol" target="_blank" class="stream-link-button">DOŁĄCZ!</a>
+                </div>
+                <div class="iframe-container">
+                    <iframe id="twitch-stream" src="" frameborder="0" allowfullscreen="true" scrolling="no"
+                        height="100%" width="100%"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="section-separator"></div>
         <footer style="margin-top:40px; font-size:11px; color:#aaa; text-align:center; line-height:1.4; opacity:0.8;">
             <strong>⚠️ GRAJ ODPOWIEDZIALNIE! ⚠️</strong><br>
             Strona zawiera linki do zewnętrznych serwisów. Korzystanie z nich odbywa się na własną odpowiedzialność i powinno być zgodne z obowiązującym prawem w Twoim kraju. Nie promujemy działań nielegalnych i nie zachęcamy do działań niezgodnych z prawem i nie ponosimy odpowiedzialności za konsekwencje wynikające z korzystania z tych stron.
             <br>
-            <span style="opacity: 0.5; display: block; margin-top: 5px;">© 2025 Made by top1malpiszon. Wszelkie prawa zastrzeżone.</span>
+            <span style="opacity: 0.5; display: block; margin-top: 5px; color: #ff6600;">© 2025 Made by top1malpiszon. Wszelkie prawa zastrzeżone.</span>
         </footer>
     </div>
     <div id="copy-message-container"></div>
     <script>
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
         document.addEventListener('DOMContentLoaded', () => {
+            const kickIframe = document.getElementById('kick-stream');
+            const twitchIframe = document.getElementById('twitch-stream');
+            const currentHostname = "lukisteve.com";
+
+            if (kickIframe) {
+                const kickStreamUrl = `https://player.kick.com/discokarol?parent=${currentHostname}`;
+                kickIframe.src = kickStreamUrl;
+            }
+
+            if (twitchIframe) {
+                const twitchStreamUrl = `https://player.twitch.tv/?channel=discokarol&parent=${currentHostname}&muted=false`;
+                twitchIframe.src = twitchStreamUrl;
+            }
+
+            document.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+            });
+
             function copyTextToClipboard(text) {
                 const textArea = document.createElement("textarea");
                 textArea.value = text;
@@ -589,10 +748,13 @@
                 const messageDiv = document.createElement('div');
                 messageDiv.className = 'copy-message';
                 messageDiv.textContent = messageText;
+
                 container.appendChild(messageDiv);
+
                 setTimeout(() => {
                     messageDiv.classList.add('show');
                 }, 10);
+
                 setTimeout(() => {
                     messageDiv.classList.remove('show');
                     setTimeout(() => {
@@ -605,11 +767,39 @@
                 button.addEventListener('click', (event) => {
                     event.preventDefault();
                     event.stopPropagation();
+
                     const code = event.currentTarget.getAttribute('data-code');
+
                     copyTextToClipboard(code);
+
                     displayCopyMessage('Kod został skopiowany!');
                 });
             });
+
+            function updateAllThumbnails() {
+                const youtubeLinks = document.querySelectorAll('.youtube-link');
+                youtubeLinks.forEach(link => {
+                    const url = link.href;
+                    const thumbnail = link.querySelector('.youtube-thumbnail');
+                    const regex = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/))([\w-]+)/;
+                    const match = url.match(regex);
+
+                    if (match && match[1]) {
+                        const videoId = match[1];
+                        const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+                        if (thumbnail) {
+                            thumbnail.src = thumbnailUrl;
+                        }
+                    } else {
+                        console.error("Niepoprawny link do YouTube.");
+                        if (thumbnail) {
+                           thumbnail.src = "https://placehold.co/480x360/e5e7eb/6b7280?text=Niepoprawny+link";
+                        }
+                    }
+                });
+            }
+
+            updateAllThumbnails();
         });
     </script>
 </body>
